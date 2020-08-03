@@ -17,7 +17,7 @@
  :-: | :-: | :-:
 OPENJDK| 11 | Miari协议及服务端的基础环境
 Python| 3.7 | 运行Nonebot协议所需要的组件
-Screen|任意| 可选，用于后台运行Miari 及Nonebot
+Screen|任意|用于后台运行Miari 及Nonebot
 Nonebot |1.6.0| 独立于Miari的一套原用于CoolQ机器人的快捷SDK
 ### 以下环境项目已自带：
 运行环境 | 用途
