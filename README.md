@@ -9,7 +9,7 @@
 ## 前言
 看过EVA结局的也许知道，虽然人类看似被终结了，但却换了另一种方式重生。小管家也一样。ಥ‿ಥ
 
-本版本基于原先的[夏小甜小管家](https://github.com/XiaSweet/xiaxiaotian-QQbot"小管家的原本链接，请在安全的环境下打开")和nonebot为本体，借助开源项目Miari以及cqhttp-mirai组件合并而成。原先的版本虽然跟随着酷Q的关闭而远去，虽然大部分QQ机器人都被迫关闭，但是上帝总会为你在关门的时候打开一扇窗。虽然某公司继续作恶，但请坚信，光明的到来只是时间的问题owo。
+本版本基于原先的[夏小甜小管家](https://github.com/XiaSweet/xiaxiaotian-QQbot)和nonebot为本体，借助开源项目Miari以及cqhttp-mirai组件合并而成。原先的版本虽然跟随着酷Q的关闭而远去，虽然大部分QQ机器人都被迫关闭，但是上帝总会为你在关门的时候打开一扇窗。虽然某公司继续作恶，但请坚信，光明的到来只是时间的问题owo。
   
 ## 推荐运行环境：
 ### 需要自己安装的环境：
@@ -54,4 +54,5 @@ yyuueexxiinngg/cqhttp-mirai | https://github.com/yyuueexxiinngg/cqhttp-mirai
 nonebot/nonebot| https://github.com/nonebot/nonebot
 mamoe/mirai|https://github.com/mamoe/mirai
 iTXTech/mirai-native|  https://github.com/iTXTech/mirai-native
-特别感谢[Dice！论坛](https://forum.kokona.tech"请在安全的环境下打开")的整合包用以提取Miari本体及启动器
+  
+特别感谢[Dice！论坛](https://forum.kokona.tech)的整合包用以提取Miari本体及启动器
