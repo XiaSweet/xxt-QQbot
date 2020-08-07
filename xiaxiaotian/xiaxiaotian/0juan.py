@@ -86,4 +86,4 @@ async def _(session: NLPSession):
     # 去掉消息首尾的空白符
     stripped_msg = session.msg_text.replace(' ','')
     stripped_msg = session.msg_text.replace('#','')
-    return IntentCommand(81, 'nojuan',current_arg=stripped_msg)
+    return IntentCommand(80, 'nojuan',current_arg=stripped_msg)

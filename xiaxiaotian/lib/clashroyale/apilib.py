@@ -7,12 +7,12 @@ def crapi(menu,tag,menu2):
     with open("lib/clashroyale/mykey.txt") as f:
         mykey=f.read().rstrip("\n")
         ssl._create_default_https_context = ssl._create_unverified_context
-        base_url = "https://api.clashroyale.com/v1"
+        base_url = "https://api.clashroyale.com/v1/"
         fj = '/'
         endpoint = "/%23"
         #请求调取官方数据库   
         request = urllib.request.Request(
-                    base_url+fj+menu+endpoint+tag+fj+menu2,
+                    base_url+menu+endpoint+tag+fj+menu2,
                     None,
                 {
                                 "Authorization":"Bearer %s" % mykey
