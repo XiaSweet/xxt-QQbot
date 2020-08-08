@@ -1,0 +1,12 @@
+2020-08-09 00:06:06,065 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-09 00:06:06,075 INFO supervisord started with pid 7
+2020-08-09 00:06:07,082 INFO spawned: 'xxtai' with pid 10
+2020-08-09 00:06:07,090 INFO spawned: 'mirai' with pid 11
+2020-08-09 00:06:08,776 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-09 00:06:08,777 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-09 00:06:54,901 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-09 00:06:54,962 INFO supervisord started with pid 8
+2020-08-09 00:06:55,968 INFO spawned: 'xxtai' with pid 11
+2020-08-09 00:06:55,977 INFO spawned: 'mirai' with pid 12
+2020-08-09 00:06:57,593 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-09 00:06:57,594 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

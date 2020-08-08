@@ -1,7 +1,7 @@
 # Debug日志输出选项
 debug: false
 # 要进行配置的QQ号 (Mirai支持多帐号登录, 故需要对每个帐号进行单独设置)
-'1470003564':
+'3304871685':
   # HTTP 相关配置
   http:
     # 可选，事件及数据上报URL, 默认为空, 即不上报
@@ -21,7 +21,7 @@ debug: false
       # 反向Websocket端口
       reversePort: 8080
       # 反向Websocket路径
-      reversePath: /ws
+      reversePath: /ws/
       # 反向Websocket Api路径 尚未实现
       #  reverseApiPath: /ws/
       # 反向Websocket Event路径 尚未实现

@@ -10,8 +10,8 @@ import ssl
 import logging
 #智库初始化
 import sys
-sys.path.append("lib/smartxxt")
-sys.path.append("lib/txai_chat")
+sys.path.append("/home/xxt-QQbot/xiaxiaotian/lib/smartxxt")
+sys.path.append("/home/xxt-QQbot/xiaxiaotian/lib/txai_chat")
 from chat import *
 import smartlib as e
 TXAI_APP_ID = get_bot().config.TXAI_APP_ID

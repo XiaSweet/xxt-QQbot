@@ -5,7 +5,7 @@ from nonebot.log import logger
 import subprocess
 from nonebot.helpers import render_expression as expr
 import sys
-sys.path.append("lib/smartxxt")
+sys.path.append("/home/xxt-QQbot/xiaxiaotian/lib/smartxxt")
 import systemre as e
 @on_command('nojuan', aliases=('伸手党查询'),only_to_me=True)
 async def nojuan(session: CommandSession):
