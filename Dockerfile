@@ -20,9 +20,11 @@ COPY ./docker-root /
 # 各种环境变量
 ENV LANG=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8 \
+	LANGUAGE="zh_CN.UTF-8" \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
     S6_CMD_ARG0=/sbin/entrypoint.sh \
     VNC_GEOMETRY=1000x600 \
     VNC_PASSWD=66666666 \
     USER_PASSWD='' \
-    DEBIAN_FRONTEND=noninteractive
+    DEBIAN_FRONTEND=noninteractive \
+	TZ=Asia/Shanghai
