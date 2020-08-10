@@ -18,8 +18,8 @@ RUN mkdir /opt/wine-stable/share/wine/mono && wget -O - https://dl.winehq.org/wi
 # copy 文件
 COPY ./docker-root /
 # 各种环境变量
-ENV LANG=C.UTF-8 \
-    LC_ALL=C.UTF-8 \
+ENV LANG=zh_CN.UTF-8 \
+    LC_ALL=zh_CN.UTF-8 \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
     S6_CMD_ARG0=/sbin/entrypoint.sh \
     VNC_GEOMETRY=1000x600 \
