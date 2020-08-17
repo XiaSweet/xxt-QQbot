@@ -60,7 +60,7 @@ async def _(session: CommandSession):
             session.state['tag'] = 'szl'
     elif s.find('降') > -1:
             logger.info('[部落升职]用户查询部落应降职管理，作为参数传入并执行查询脚本') 
-            session.state['tag'] = 'jiangji'
+            session.state['tag'] = 'dbljiangji'
     elif s.find(f'捐卡' and '信息') or s.find(f'捐卡' and '查询') > -1:
             logger.info('[部落升职]用户查询部落捐卡信息，作为参数传入并执行查询脚本') 
             session.state['tag'] = 'juankaapi'    

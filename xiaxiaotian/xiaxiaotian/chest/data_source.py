@@ -2,7 +2,7 @@ import subprocess
 import logging
 from nonebot.log import logger
 async def get_nextchest_of_tag(tag: str) -> str:
-    chest = subprocess.getoutput("python3 lib/clashroyale/chests.py -u '%s'"%(tag))
+    chest = subprocess.getoutput("python lib/clashroyale/chests.py -u '%s'"%(tag))
     if chest == 'ERROR-CR404':
         logger.info('[宝箱查询]查询完毕，官方无此TAG信息')
         logger.debug('[宝箱查询]查询脚本执行完毕并返回信息到Nonebot脚本')

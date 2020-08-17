@@ -6,4 +6,3 @@ NOUPDATE
 login 123456789 TestMiraiOK
 say 655057127 MiraiOK_published!
 ----------
-

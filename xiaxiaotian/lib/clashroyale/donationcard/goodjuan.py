@@ -42,8 +42,8 @@ if shenshou == True:
     if not good == False:
         print (('恭喜恭喜，目前还没有可需要降级的伙伴，请继续努力哦(⊙o⊙)！'))
     elif good == False:
-        print(("又到一周长老时，有人欢喜有人忧owo\n以下是%s部落未通过考核的清单:"))%(clanid)
-        for item in retdbl["items"]:
+        print(("又到一周长老时，有人欢喜有人忧owo\n以下是%s部落未通过考核的清单:")%(clanid))
+        for item in ret["items"]:
             #部落长老留职条件对比
             if item["role"] == 'elder':
                 if item["donations"] > 359 and item["donationsReceived"] - item["donations"] < 1:

@@ -10,3 +10,320 @@
 2020-08-09 00:06:55,977 INFO spawned: 'mirai' with pid 12
 2020-08-09 00:06:57,593 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-08-09 00:06:57,594 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-12 18:55:41,269 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-12 18:55:41,379 INFO supervisord started with pid 7
+2020-08-12 18:55:42,402 INFO spawned: 'xxtai' with pid 10
+2020-08-12 18:55:42,411 INFO spawned: 'mirai' with pid 11
+2020-08-12 18:55:43,942 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-12 18:55:43,943 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 19:58:06,838 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-16 19:58:06,931 INFO supervisord started with pid 7
+2020-08-16 19:58:07,999 INFO spawned: 'xxtai' with pid 10
+2020-08-16 19:58:08,008 INFO spawned: 'mirai' with pid 11
+2020-08-16 19:58:09,384 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 19:58:09,384 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:23:39,784 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-16 20:23:39,812 INFO supervisord started with pid 7
+2020-08-16 20:23:40,817 INFO spawned: 'xxtai' with pid 10
+2020-08-16 20:23:40,827 INFO spawned: 'mirai' with pid 11
+2020-08-16 20:23:42,278 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:23:42,279 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:50:33,397 INFO exited: xxtai (exit status 0; expected)
+2020-08-16 20:50:34,538 INFO spawned: 'xxtai' with pid 152
+2020-08-16 20:50:35,542 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:50:51,218 INFO exited: xxtai (exit status 0; expected)
+2020-08-16 20:50:52,223 INFO spawned: 'xxtai' with pid 172
+2020-08-16 20:50:53,226 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:50:55,780 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:50:55,910 INFO spawned: 'xxtai' with pid 175
+2020-08-16 20:50:56,913 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:50:59,138 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:00,146 INFO spawned: 'xxtai' with pid 185
+2020-08-16 20:51:01,151 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:03,449 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:04,456 INFO spawned: 'xxtai' with pid 188
+2020-08-16 20:51:05,460 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:07,731 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:08,739 INFO spawned: 'xxtai' with pid 193
+2020-08-16 20:51:09,744 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:12,003 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:13,009 INFO spawned: 'xxtai' with pid 196
+2020-08-16 20:51:14,013 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:16,258 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:17,266 INFO spawned: 'xxtai' with pid 199
+2020-08-16 20:51:18,270 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:20,572 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:21,580 INFO spawned: 'xxtai' with pid 202
+2020-08-16 20:51:22,583 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:24,951 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:25,958 INFO spawned: 'xxtai' with pid 205
+2020-08-16 20:51:26,962 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:29,330 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:30,338 INFO spawned: 'xxtai' with pid 208
+2020-08-16 20:51:31,345 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:33,834 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:34,841 INFO spawned: 'xxtai' with pid 211
+2020-08-16 20:51:35,845 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:38,077 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:39,083 INFO spawned: 'xxtai' with pid 214
+2020-08-16 20:51:40,086 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:51:42,667 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:51:43,673 INFO spawned: 'xxtai' with pid 217
+2020-08-16 20:51:44,677 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:05,759 INFO exited: xxtai (exit status 0; expected)
+2020-08-16 20:52:06,766 INFO spawned: 'xxtai' with pid 238
+2020-08-16 20:52:08,472 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:10,208 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:10,498 INFO spawned: 'xxtai' with pid 241
+2020-08-16 20:52:11,589 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:13,915 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:14,922 INFO spawned: 'xxtai' with pid 251
+2020-08-16 20:52:16,785 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:18,227 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:18,278 INFO spawned: 'xxtai' with pid 254
+2020-08-16 20:52:19,326 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:21,614 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:22,620 INFO spawned: 'xxtai' with pid 257
+2020-08-16 20:52:23,623 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:25,822 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:26,829 INFO spawned: 'xxtai' with pid 260
+2020-08-16 20:52:27,834 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:30,049 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:31,055 INFO spawned: 'xxtai' with pid 263
+2020-08-16 20:52:32,057 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:34,446 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:34,577 INFO spawned: 'xxtai' with pid 266
+2020-08-16 20:52:36,021 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:38,047 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:39,054 INFO spawned: 'xxtai' with pid 271
+2020-08-16 20:52:40,057 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:42,381 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:43,008 INFO spawned: 'xxtai' with pid 274
+2020-08-16 20:52:44,014 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:46,168 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:47,175 INFO spawned: 'xxtai' with pid 277
+2020-08-16 20:52:48,178 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:50,510 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:51,517 INFO spawned: 'xxtai' with pid 280
+2020-08-16 20:52:52,521 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:54,873 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:52:55,881 INFO spawned: 'xxtai' with pid 283
+2020-08-16 20:52:56,884 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:52:59,173 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:00,178 INFO spawned: 'xxtai' with pid 286
+2020-08-16 20:53:01,182 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:03,427 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:04,433 INFO spawned: 'xxtai' with pid 289
+2020-08-16 20:53:05,436 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:07,821 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:08,827 INFO spawned: 'xxtai' with pid 292
+2020-08-16 20:53:09,831 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:12,109 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:13,116 INFO spawned: 'xxtai' with pid 295
+2020-08-16 20:53:14,120 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:16,403 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:17,409 INFO spawned: 'xxtai' with pid 298
+2020-08-16 20:53:19,380 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:20,819 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:21,828 INFO spawned: 'xxtai' with pid 301
+2020-08-16 20:53:22,833 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:25,119 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:26,126 INFO spawned: 'xxtai' with pid 304
+2020-08-16 20:53:27,130 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:29,380 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:30,387 INFO spawned: 'xxtai' with pid 307
+2020-08-16 20:53:31,391 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:33,706 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:34,713 INFO spawned: 'xxtai' with pid 310
+2020-08-16 20:53:35,717 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:37,933 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:38,943 INFO spawned: 'xxtai' with pid 313
+2020-08-16 20:53:39,946 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:42,265 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:43,274 INFO spawned: 'xxtai' with pid 316
+2020-08-16 20:53:44,279 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:46,547 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:47,554 INFO spawned: 'xxtai' with pid 319
+2020-08-16 20:53:48,558 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:53:50,893 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:53:51,901 INFO spawned: 'xxtai' with pid 322
+2020-08-16 20:53:52,905 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:01,674 INFO exited: xxtai (exit status 0; expected)
+2020-08-16 20:54:01,793 INFO spawned: 'xxtai' with pid 328
+2020-08-16 20:54:02,797 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:05,108 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:06,115 INFO spawned: 'xxtai' with pid 339
+2020-08-16 20:54:07,119 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:09,340 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:09,391 INFO spawned: 'xxtai' with pid 342
+2020-08-16 20:54:10,480 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:12,671 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:13,677 INFO spawned: 'xxtai' with pid 347
+2020-08-16 20:54:14,680 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:16,939 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:17,560 INFO spawned: 'xxtai' with pid 350
+2020-08-16 20:54:19,427 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:20,820 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:21,827 INFO spawned: 'xxtai' with pid 353
+2020-08-16 20:54:22,831 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:25,186 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:26,193 INFO spawned: 'xxtai' with pid 356
+2020-08-16 20:54:27,197 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:29,531 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:30,538 INFO spawned: 'xxtai' with pid 359
+2020-08-16 20:54:31,542 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:33,885 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:34,892 INFO spawned: 'xxtai' with pid 362
+2020-08-16 20:54:35,896 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:38,174 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:39,181 INFO spawned: 'xxtai' with pid 365
+2020-08-16 20:54:40,534 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:42,391 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:43,398 INFO spawned: 'xxtai' with pid 368
+2020-08-16 20:54:44,401 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:46,575 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:47,582 INFO spawned: 'xxtai' with pid 371
+2020-08-16 20:54:48,586 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:50,841 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:51,848 INFO spawned: 'xxtai' with pid 374
+2020-08-16 20:54:52,852 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:55,070 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:54:56,077 INFO spawned: 'xxtai' with pid 377
+2020-08-16 20:54:57,082 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:54:59,284 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:00,291 INFO spawned: 'xxtai' with pid 380
+2020-08-16 20:55:01,295 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:03,592 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:04,601 INFO spawned: 'xxtai' with pid 383
+2020-08-16 20:55:05,605 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:07,844 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:08,851 INFO spawned: 'xxtai' with pid 386
+2020-08-16 20:55:09,855 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:12,113 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:13,121 INFO spawned: 'xxtai' with pid 389
+2020-08-16 20:55:14,125 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:16,465 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:17,471 INFO spawned: 'xxtai' with pid 392
+2020-08-16 20:55:18,479 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:20,705 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:21,711 INFO spawned: 'xxtai' with pid 395
+2020-08-16 20:55:22,715 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:25,011 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:26,018 INFO spawned: 'xxtai' with pid 398
+2020-08-16 20:55:27,022 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:29,208 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:30,215 INFO spawned: 'xxtai' with pid 401
+2020-08-16 20:55:31,219 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:33,460 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:34,469 INFO spawned: 'xxtai' with pid 404
+2020-08-16 20:55:35,474 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:37,889 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:38,896 INFO spawned: 'xxtai' with pid 407
+2020-08-16 20:55:39,901 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:42,253 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:43,260 INFO spawned: 'xxtai' with pid 410
+2020-08-16 20:55:44,265 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:46,573 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:47,580 INFO spawned: 'xxtai' with pid 413
+2020-08-16 20:55:48,585 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:50,878 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:51,885 INFO spawned: 'xxtai' with pid 416
+2020-08-16 20:55:53,526 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:55,260 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:55:56,266 INFO spawned: 'xxtai' with pid 419
+2020-08-16 20:55:57,271 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:55:59,605 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:00,612 INFO spawned: 'xxtai' with pid 422
+2020-08-16 20:56:02,226 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:03,914 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:04,920 INFO spawned: 'xxtai' with pid 425
+2020-08-16 20:56:06,655 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:08,302 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:09,309 INFO spawned: 'xxtai' with pid 428
+2020-08-16 20:56:10,313 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:12,572 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:13,579 INFO spawned: 'xxtai' with pid 431
+2020-08-16 20:56:15,301 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:16,874 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:17,881 INFO spawned: 'xxtai' with pid 434
+2020-08-16 20:56:19,529 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:21,097 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:22,103 INFO spawned: 'xxtai' with pid 437
+2020-08-16 20:56:23,107 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:25,486 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:25,509 INFO spawned: 'xxtai' with pid 440
+2020-08-16 20:56:26,861 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:29,045 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:30,052 INFO spawned: 'xxtai' with pid 445
+2020-08-16 20:56:31,056 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:33,376 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:34,387 INFO spawned: 'xxtai' with pid 448
+2020-08-16 20:56:35,391 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:37,725 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:38,732 INFO spawned: 'xxtai' with pid 451
+2020-08-16 20:56:39,736 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:42,033 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:43,041 INFO spawned: 'xxtai' with pid 454
+2020-08-16 20:56:44,045 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:46,278 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:47,286 INFO spawned: 'xxtai' with pid 457
+2020-08-16 20:56:48,291 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:50,581 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:51,588 INFO spawned: 'xxtai' with pid 460
+2020-08-16 20:56:52,592 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:54,832 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:56:55,839 INFO spawned: 'xxtai' with pid 463
+2020-08-16 20:56:56,843 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:56:59,277 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:00,284 INFO spawned: 'xxtai' with pid 466
+2020-08-16 20:57:01,289 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:57:03,715 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:04,632 INFO spawned: 'xxtai' with pid 469
+2020-08-16 20:57:05,638 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:57:07,929 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:08,936 INFO spawned: 'xxtai' with pid 472
+2020-08-16 20:57:09,940 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:57:12,220 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:13,226 INFO spawned: 'xxtai' with pid 475
+2020-08-16 20:57:14,230 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:57:16,595 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:17,602 INFO spawned: 'xxtai' with pid 478
+2020-08-16 20:57:19,587 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:57:20,899 INFO exited: xxtai (exit status 1; not expected)
+2020-08-16 20:57:21,141 INFO spawned: 'xxtai' with pid 481
+2020-08-16 20:57:22,192 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:58:10,697 WARN received SIGTERM indicating exit request
+2020-08-16 20:58:10,704 INFO waiting for xxtai, mirai to die
+2020-08-16 20:58:10,740 INFO stopped: mirai (terminated by SIGTERM)
+2020-08-16 20:58:13,747 INFO waiting for xxtai to die
+2020-08-16 20:58:14,095 INFO stopped: xxtai (exit status 0)
+2020-08-16 20:58:35,975 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-16 20:58:36,035 INFO supervisord started with pid 7
+2020-08-16 20:58:37,042 INFO spawned: 'xxtai' with pid 10
+2020-08-16 20:58:37,051 INFO spawned: 'mirai' with pid 11
+2020-08-16 20:58:38,444 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 20:58:38,445 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 21:03:11,294 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-16 21:03:11,303 INFO supervisord started with pid 7
+2020-08-16 21:03:12,311 INFO spawned: 'xxtai' with pid 10
+2020-08-16 21:03:12,319 INFO spawned: 'mirai' with pid 11
+2020-08-16 21:03:14,037 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 21:03:14,039 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 22:26:33,565 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-16 22:26:33,634 INFO supervisord started with pid 7
+2020-08-16 22:26:34,644 INFO spawned: 'xxtai' with pid 10
+2020-08-16 22:26:34,656 INFO spawned: 'mirai' with pid 11
+2020-08-16 22:26:36,214 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-16 22:26:36,215 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-17 21:28:25,229 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-17 21:28:25,313 INFO supervisord started with pid 8
+2020-08-17 21:28:26,390 INFO spawned: 'xxtai' with pid 11
+2020-08-17 21:28:26,401 INFO spawned: 'mirai' with pid 12
+2020-08-17 21:28:27,879 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-17 21:28:27,879 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-18 00:07:39,341 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2020-08-18 00:07:39,382 INFO supervisord started with pid 7
+2020-08-18 00:07:40,392 INFO spawned: 'xxtai' with pid 10
+2020-08-18 00:07:40,406 INFO spawned: 'mirai' with pid 11
+2020-08-18 00:07:42,037 INFO success: xxtai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-08-18 00:07:42,037 INFO success: mirai entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
