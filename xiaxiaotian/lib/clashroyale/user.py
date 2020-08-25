@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import argparse
+import datetime
 #外部函数引入
 from your import *
 from apilib import *
@@ -20,21 +21,21 @@ elif data == "CRTimeOut":
     print("ERROR-CRTimeOut")
 elif data == "CRNotCallMe":
     print("ERROR-CRNotCallMe")
-else:   
+else:
     print('久等了，以下是用户"'+cr_user(tag)+'"的详细信息：')
     user = ("个人信息:\n所在竞技场:%s ，国王塔等级:%s\n目前杯数:%s，最高杯数:%s")%(
-                    data["arena"]["name"],
-                    data["expLevel"],
-                    data["trophies"],
-                    data["bestTrophies"]
+        data["arena"]["name"],
+        data["expLevel"],
+        data["trophies"],
+        data["bestTrophies"]
     )
     clan = ("部落信息:\n所在部落:%s，部落Tag:%s\n本周捐卡:%s，本周收卡:%s\n部落职位:%s") %(
-                    data["clan"]["name"],
-                    data["clan"]["tag"],
-                    data["donations"],
-                    data["donationsReceived"],
-                    data["role"]
-                    )
+        data["clan"]["name"],
+        data["clan"]["tag"],
+        data["donations"],
+        data["donationsReceived"],
+        data["role"],
+                )
     #竞技场段翻译
     user = user.replace('Ultimate Champion','终极冠军联赛')
     user = user.replace('Royal Champion','皇室冠军联赛')
