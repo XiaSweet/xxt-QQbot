@@ -1,7 +1,7 @@
 import nonebot
 import config
 from os import path
-
+path.join('lib/smartxxt/')
 if __name__ == '__main__':
     nonebot.init(config)
     nonebot.load_builtin_plugins()

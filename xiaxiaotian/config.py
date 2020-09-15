@@ -10,9 +10,11 @@ COMMAND_START = {'', '/', '!', '／', '！'}
 NICKNAME = {'小管家', '夏小甜'}
 SESSION_RUN_TIMEOUT = timedelta(seconds=10)
 DEFAULT_VALIDATION_FAILURE_EXPRESSION = '你发送的内容格式不太对呢，请检查一下再发送哦～'
-DEBUG = True
+DEBUG = False
 #腾讯AI-API段鉴权配置
 TXAI_APP_ID = '2128916170'
 TXAI_APP_KEY = 'mSTstLFLxSdO6SRp'
+#维护模式开关
+Maintenance = True
 #配置文件结束
 
