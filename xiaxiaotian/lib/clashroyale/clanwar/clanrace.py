@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 sys.path.append('lib/clashroyale/')
-from apilib import *
+import apilib
 def views(req):
     cs = 0
     print('部落战排名如下:')

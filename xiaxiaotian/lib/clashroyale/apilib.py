@@ -17,31 +17,29 @@ def crapi(menu,tag,menu2):
                 base_url+menu+endpoint+tag+fj+menu2,
                 None,
             {"Authorization":"Bearer %s" % mykey})
-        res = urllib.request.urlopen(request,timeout=8).read().decode("utf-8")
-        check = tryapi(res)
+        res,check = tryapi(request)
         if check == True:
             trys = json.loads(res)
-            return trys
+            return trys,True
         else:
-            return check
+            return res,False
 # API检查模块
-def tryapi(source):
+def tryapi(request):
     try:
-        source
-    except urllib.error.URLError as e:
-        data = "URLError"
+        ty = urllib.request.urlopen(request,timeout=8).read().decode("utf-8")
     #HTTP错误
     except urllib.error.HTTPError as e:
-        data = ('CRAPI-%s'%(e.code))
+        return 'CRAPI-%s'%(e.code),False
+    except urllib.error.URLError as e:
+        return "URLError-%s"%(e),False
     #异常反馈
     except Exception as e:
-        data = ("CRAPI-Error:"+e)
+        return "CRAPI-Error:%s"%(e),False
     #中文检查
     except UnicodeEncodeError:
-        data = "CRAPI-NotSupportChinese"
+        return "CRAPI-NotSupportChinese",False
     else:
-        return True
-    return data
+        return ty,True
 #获取用户信息
 def cr_user(tag):
     with open("lib/clashroyale/mykey.txt") as f:

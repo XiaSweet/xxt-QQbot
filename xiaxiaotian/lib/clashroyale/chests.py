@@ -4,27 +4,28 @@
 #start = time.time()
 import argparse
 #外部函数引入
-from apilib import crapi,cr_user
+import apilib
+import fanyi
 parser = argparse.ArgumentParser(description='CR宝箱查询程序')
 parser.add_argument('--usertag','-u',help='你的Tag')
 args = parser.parse_args()
 tag = (args.usertag)
-req = crapi('players',tag,'upcomingchests')
-if req != False:
-    print ('查询的用户:'+cr_user(tag)+',未来的宝箱如下Ovo:')
+req,stat = apilib.crapi('players',tag,'upcomingchests')
+if stat == True:
+    print ('查询的用户:'+apilib.cr_user(tag)+' 未来的宝箱如下Ovo:')
+    chest = ("下个宝箱:%s" % (req["items"][0]["name"]))
+    chest = fanyi.chest(chest)
+    print (chest)
+    stat = 1
     for item in req ["items"]:
-                    chest = ("宝箱位置:+%s,宝箱名称:%s" % (
-                                    item["index"], 
-                                    item["name"]
-                            ))  
-                    chest = chest.replace('Silver Chest','普通银箱')
-                    chest = chest.replace('Magical Chest','魔法紫箱')
-                    chest = chest.replace('Golden Chest','黄金宝箱')
-                    chest = chest.replace('Giant Chest','巨型宝箱')
-                    chest = chest.replace('Mega Lightning Chest','国王闪电宝箱（提前恭喜啦Ovo）')
-                    chest = chest.replace('Legendary Chest','传奇宝箱')
-                    chest = chest.replace('Epic Chest','史诗宝箱')
-                    chest = chest.replace('+0','下个宝箱')
-                    print (chest)
-else:
+        if stat == 1:
+            stat = stat+1
+            pass
+        else:
+            chest = ("宝箱位置:+%s,宝箱名称:%s" % (item["index"],item["name"]))
+            chest = fanyi.chest(chest)
+            print (chest)
+elif stat == False:
     print(req)
+else:
+    print('出现无法解决的错误了，请联系管理员帮忙维护吧(⊙o⊙)')

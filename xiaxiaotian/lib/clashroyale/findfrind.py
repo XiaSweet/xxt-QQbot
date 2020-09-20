@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 import datetime
 #外部函数引入
-from your import *
-from apilib import *
+import apilib
 dbltag = "88GUJ80"
 xbltag = "JY8YVC0"
-dblret = crapi('clans',dbltag,'members')
+dblret = apilib.crapi('clans',dbltag,'members')
 if dblret == (400 or 404 or 403 or CRTimeOut or CRNotCallMe):
     print('出现错误了，请稍候再查询一下吧')
     exit()
-xblret = crapi('clans',xbltag,'members')
+xblret = apilib.crapi('clans',xbltag,'members')
 now = datetime.datetime.utcnow()
 #初始化变量数据
 match = 0
