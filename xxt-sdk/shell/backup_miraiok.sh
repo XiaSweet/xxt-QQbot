@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 mkdir /tmp/xxt_backup
 ls_dir=$(pwd)
 xxt_dir=$(expr $ls_dir : '\(\/.*/xxt-QQbot/\)')
