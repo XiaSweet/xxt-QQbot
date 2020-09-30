@@ -9,11 +9,15 @@ echo '[同步助手]正在添加所有git更改'
 cd $xxt_dir
 git add . -A
 echo '[同步助手]开始添加Commit日志'
-read -s -n1 -p "按任意键继续，编辑完正常退出即可 ... "
-git commit
+echo '请使用简短的语句来介绍你的修改内容'
+read commit_log
+#任意键继续
+#read -s -n1 -p "按任意键继续，编辑完正常退出即可 ... "
+git commit -m "$commit_log"
 echo '[同步助手]开始上传源码到Github,仓库为默认仓库'
 git push origin
 echo '[同步助手]代码同步完毕，正在还原登陆信息文件及最后的操作'
 mv /tmp/xxt_backup/config.txt $xxt_dir/xxt-bin/config.txt
 rm -r -f /tmp/xxt_backup
-echo '[同步助手]操作成功完成'
+echo '[同步助手]操作成功完成,即将返回主菜单'
+sleep 3
