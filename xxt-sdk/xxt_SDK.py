@@ -27,4 +27,4 @@ def menu_1():
     import subprocess
     #现行备份文件
     subprocess.run('sh shell/backup_miraiok.sh',shell=True)
-    menu()
+    return 0

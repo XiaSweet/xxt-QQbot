@@ -13,6 +13,7 @@ def menu():
         print('多次选择错误，请重新运行程序吧')
     elif page == '1':
         xxt_SDK.menu_1()
+        menu()
     elif page == '2':
         print('2')
     elif page == '3':
