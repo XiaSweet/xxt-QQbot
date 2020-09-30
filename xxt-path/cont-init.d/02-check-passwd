@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv /bin/bash
+echo '[安全卫士]正在检测程序完整性'
+if [ "$qquser" == "" or "$qqpass" == ""];then
+    echo '[安全卫士]出现致命错误，您没有输入QQ信息'
+	echo '请在Docker容器运行前添加qquser和qqpass的变量'
+	echo 'qquser变量：你的QQ账号'
+	echo 'qqpass变量：你的QQ密码'
+	xxtsafe-passwd=$('Error')
+	exit 1
+else
+    echo '[安全卫士]已检测到QQ信息，正在初始化'
+	sed -i "s/Im-><qquser/$qquser/g" /home/xxt-QQbot/config.txt
+	sed -i "s/Im-><qqpass/$qqpass/g" /home/xxt-QQbot/config.txt
+	echo '[安全卫士]基础运行程序已执行完毕，小管家稍后将会启动'
+fi

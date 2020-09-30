@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv /bin/bash
+mirai=$(find /home -name 'mirai-co*.jar')
+miraiok=$(find /home -name 'xxt-Storymoon')
+echo '安全卫士正在检测程序完整性'
+if [ "$mirai" != "" and "$miraiok" != ""];then
+    echo '[安全卫士]程序完整性检测完毕'
+    cd /home/xxt-QQbot
+    /usr/bin/supervisord -c /etc/xiaxiaotian/supervisord.conf
+else
+    echo '[安全卫士]出现问题了：你的小管家被意外修改了，无法运行QAQ'
+	echo '[安全卫士]正在重新下载小管家程序，请稍等一会吧owo'
+    cd /home
+	rm -r -f xxt-QQbot
+    git clone https://github.com/XiaSweet/xxt-QQbot
+    echo '[安全卫士]程序完整性已修复完成'
+    cd xxt-QQbot
+    /usr/bin/supervisord -c /etc/xiaxiaotian/supervisord.conf
+fi

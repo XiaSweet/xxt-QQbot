@@ -33,7 +33,6 @@ async def clans(session: CommandSession):
 async def get_clans(tag: str) -> str:
     clans = subprocess.getoutput("python3 lib/clashroyale/peoplemmc/clanview.py -t '%s'"%(tag))
     return f'{clans}'
-    #return f'部落查询功能暂未启用，敬请期待→_→'
 @clans.args_parser
 async def _(session: CommandSession):
     logger.debug('[部落查询]开始过滤无效字符')
