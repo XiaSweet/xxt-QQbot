@@ -20,6 +20,9 @@ def menu():
     elif page == '3':
         yuyan_ch.menu_help()
         menu()
+    elif page == '4':
+        print('同步助手正在退出中.....')
+        exit(0)
     else:
         import time
         page_err=page_err+1
