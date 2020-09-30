@@ -15,9 +15,11 @@ def menu():
         xxt_SDK.menu_1()
         menu()
     elif page == '2':
-        print('2')
+        print('本功能暂未开放，请君返回首页望望吧')
+        menu()
     elif page == '3':
-        print('3')
+        yuyan_ch.menu_help()
+        menu()
     else:
         import time
         page_err=page_err+1

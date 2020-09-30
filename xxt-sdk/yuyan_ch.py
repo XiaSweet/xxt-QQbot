@@ -13,3 +13,10 @@ def menu():
 (2)使用Docker映像重新部署小管家 \n\
 (3)帮助与支持 \n\
     ")
+def menu_help():
+    print('夏小甜同步助手：\n本组件为小管家夏小甜的一部分，使用这个组件可以快捷安全的用来同步源码到仓库内而不需要担心明文密码泄露的问题。\n\
+友情感谢： \n\
+官方仓库：https://github.com/XiaSweet/xxt-QQbot \n\
+秘密基地: https://notes.xiasweet.com \n\
+本组件基于LGPLv3.0开源，XiaSweet Lab版权所有')
+    input("输入任意信息以返回主菜单......")
