@@ -1,6 +1,7 @@
 #!/bin/bash
 echo '[夏小甜管家]正在检测程序完整性'
 source config.conf 
+cq_ver=0.9.40-fix2
 if [ ! -d "/home/xxt-QQbot" ]; then
   echo '[夏小甜管家]初始化夏小甜管家主程序'
   git clone  -b master https://github.com/XiaSweet/xxt-QQbot
