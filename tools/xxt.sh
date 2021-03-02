@@ -4,7 +4,7 @@ source config.conf
 cq_ver=0.9.40-fix2
 if [ ! -d "/home/xxt-QQbot" ]; then
   echo '[夏小甜管家]初始化夏小甜管家主程序'
-  git clone  -b master https://github.com/XiaSweet/xxt-QQbot
+  git clone --depth=1 -b master https://github.com/XiaSweet/xxt-QQbot
   if [ $? -ne 0 ]; then
    echo "\033[31m[夏小甜管家]很抱歉夏小甜管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
    exit 1
@@ -55,7 +55,7 @@ cq_set=$(find /etc/xiaxiaotian/cq -name 'config.hjson')
 if [ ! -f "$cq_set" ];then
 	echo '[夏小甜管家]CQHTTP初始化完成,现在开始账户设置'
 	sleep 3
-	python setting.py -qi $qid -qp $qpwd
+	python tools/setting.py -qi $qid -qp $qpwd
 	if [ $? -ne 0 ]; then
 	echo -e '\033[31m[夏小甜管家]出现了致命错误：关键变量缺失，请确定QID与QPWD变量是否存在！QAQ\033[0m'
 	echo '[夏小甜管家]因无法解决的错误而退出了程序。。。。。。。。。。'
@@ -66,9 +66,10 @@ if [ ! -f "$cq_set" ];then
 	fi
 else
 	echo -e '\033[32m[夏小甜管家]CQHTTP初始化完成,马上启动owo\033[0m'
+	cd /etc/xiaxiaotian/cq && nohup ./cqhttp >/dev/null 2>log &
 	sleep 1.5
 fi
 cp device.json /etc/xiaxiaotian/cq
 clear
-echo '以下是CQHTTP的启动日志：'
-/usr/bin/supervisord -c supervisord.conf
+echo '以下是NoneBot的启动日志：'
+python /home/xxt-QQbot/start.py
