@@ -21,6 +21,6 @@ r['uin']=qid
 r['encrypt_password']=False
 print('\033[31m[夏小甜管家]为了保护机器人账户的安全，推荐自行配置CQHTTP并开启加密！\033[0m')
 print('[夏小甜管家]正在保存配置信息......')
-rw=open('/etc/xiaxiaotian/config.hjson','w+')
+rw=open('/etc/xiaxiaotian/cq/config.hjson','w+')
 rw.write(hjson.dumps(r))
 print('\033[32m[夏小甜管家]配置信息保存成功')

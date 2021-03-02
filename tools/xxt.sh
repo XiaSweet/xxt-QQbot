@@ -1,11 +1,20 @@
 #!/bin/bash
 echo '[夏小甜管家]正在检测程序完整性'
 source config.conf 
-if [ ! -d "/etc/xiaxiaotian" ]; then
-  echo '[夏小甜管家]文件初始化。。。。。。'
-  mkdir /etc/xiaxiaotian
+if [ ! -d "/home/xxt-QQbot" ]; then
+  echo '[夏小甜管家]初始化夏小甜管家主程序'
+  git clone  -b master https://github.com/XiaSweet/xxt-QQbot
+  if [ $? -ne 0 ]; then
+   echo "\033[31m[夏小甜管家]很抱歉夏小甜管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
+   exit 1
+   fi
 fi
-cqstat=$(find /etc/xiaxiaotian -name 'cqhttp')
+cd /home/xxt-QQbot
+if [ ! -d "/etc/xiaxiaotian/cq" ]; then
+  echo '[夏小甜管家]文件初始化。。。。。。'
+  mkdir /etc/xiaxiaotian/cq
+fi
+cqstat=$(find /etc/xiaxiaotian/cq -name 'cqhttp')
 if [ ! -f "$cqstat" ];then
 	echo "[夏小甜管家]CQHTTP正在初始化，请稍候"
 	os=$(uname)
@@ -31,17 +40,17 @@ if [ ! -f "$cqstat" ];then
 	echo 'OS架构：'$os_type
 	echo '测试时间：'$(date)
 	echo -e '正在加载CQHTTP\033[32m'
-	wget "https://github.com/Mrs4s/go-cqhttp/releases/download/v${cq_ver}/go-cqhttp-v$cq_ver-$os-$os_type" -O /etc/xiaxiaotian/cqhttp
+	wget "https://github.com/Mrs4s/go-cqhttp/releases/download/v${cq_ver}/go-cqhttp-v$cq_ver-$os-$os_type" -O /etc/xiaxiaotian/cq/cqhttp
 	if [ $? -ne 0 ]; then
 		echo "\033[31m[夏小甜管家]很抱歉CQHTTP下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
 		exit 1
-	chmod -R 744 /etc/xiaxiaotian/cqhttp
+	chmod -R 744 /etc/xiaxiaotian/cq/cqhttp
 	else
-		chmod -R 744 /etc/xiaxiaotian/cqhttp
+		chmod -R 744 /etc/xiaxiaotian/cq/cqhttp
 		echo -e "\033[32m[夏小甜管家]CQHTTP加载完成OWo\033[0m"
 	fi
 fi
-cq_set=$(find /etc/xiaxiaotian -name 'config.hjson')
+cq_set=$(find /etc/xiaxiaotian/cq -name 'config.hjson')
 if [ ! -f "$cq_set" ];then
 	echo '[夏小甜管家]CQHTTP初始化完成,现在开始账户设置'
 	sleep 3
@@ -58,7 +67,7 @@ else
 	echo -e '\033[32m[夏小甜管家]CQHTTP初始化完成,马上启动owo\033[0m'
 	sleep 1.5
 fi
-cp CQ_setting/device.json /etc/xiaxiaotian
+cp CQ_setting/device.json /etc/xiaxiaotian/cq
 clear
 echo '以下是CQHTTP的启动日志：'
 /usr/bin/supervisord -c supervisord.conf
