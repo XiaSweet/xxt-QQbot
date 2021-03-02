@@ -54,7 +54,7 @@ cq_set=$(find /etc/xiaxiaotian/cq -name 'config.hjson')
 if [ ! -f "$cq_set" ];then
 	echo '[夏小甜管家]CQHTTP初始化完成,现在开始账户设置'
 	sleep 3
-	python CQ_setting/setting.py -qi $qid -qp $qpwd
+	python setting.py -qi $qid -qp $qpwd
 	if [ $? -ne 0 ]; then
 	echo -e '\033[31m[夏小甜管家]出现了致命错误：关键变量缺失，请确定QID与QPWD变量是否存在！QAQ\033[0m'
 	echo '[夏小甜管家]因无法解决的错误而退出了程序。。。。。。。。。。'
@@ -67,7 +67,7 @@ else
 	echo -e '\033[32m[夏小甜管家]CQHTTP初始化完成,马上启动owo\033[0m'
 	sleep 1.5
 fi
-cp CQ_setting/device.json /etc/xiaxiaotian/cq
+cp device.json /etc/xiaxiaotian/cq
 clear
 echo '以下是CQHTTP的启动日志：'
 /usr/bin/supervisord -c supervisord.conf
