@@ -16,7 +16,7 @@ Nonebot |2.0.2| 基于OneBot标准的Python开发SDK
 ### 以下环境项目已自带：
 运行环境 | 用途
  :-: | :-:
-go-cqhttp|CQHTTP协议的Miari实现
+go-cqhttp|使用脚本部署时会自动安装，无法人为干预
 xiaxiaotian-QQbot| 游戏皇室战争及皇室战争部落“皇家.部落”的管理辅助
 ## 使用方法：
 ### （1）使用Docker快速部署
