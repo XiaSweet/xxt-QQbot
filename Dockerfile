@@ -12,7 +12,7 @@ RUN apk update && \
 	apk add git nano wget musl-dev build-base
 #部署夏小甜小管家底层程序及本体
 RUN python -m pip install --upgrade pip \
-    && pip install nonebot2 
+    && pip install nb-cli hjson nonebot-adapter-cqhttp
  #添加配置文件并进行最后的清理工作
 RUN rm -rf /var/cache/apk/* &&\
 	apk del build-base

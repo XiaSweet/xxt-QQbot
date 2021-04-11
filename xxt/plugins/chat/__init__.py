@@ -3,15 +3,15 @@ from xxt.lib.helpers import render_expression as expr
 from nonebot.adapters.cqhttp import escape
 from nonebot.log import logger
 from nonebot.rule import to_me
-from nonebot.typing import Bot, Event
+from nonebot.adapters import Bot, Event
 #智库初始化
 import sys
 sys.path.append("xxt/plugins/chat")
 import xxt.lib.smartlib as e
 import chat_text as txchat
-import setting
-TXAI_ID = setting.TXAI_APP_ID
-TXAI_KEY = setting.TXAI_APP_KEY
+import xxt.setting.config as cf
+TXAI_ID = cf.TXAI_APP_ID
+TXAI_KEY = cf.TXAI_APP_KEY
 chat = on_message(rule=to_me(), priority=10, block=True)
 @chat.handle()
 async def _(bot: Bot, event: Event, state: dict):

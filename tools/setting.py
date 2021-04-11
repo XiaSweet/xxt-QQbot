@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser(description='CQHTTP设置程序')
 parser.add_argument('--qqid','-qi',default='3304871685',help='QQ账户，在Docker中应是QID变量')
 parser.add_argument('--qqpasswd','-qp',default=False,help='QQ密码，在Docker中应是QPWD变量')
 arg = parser.parse_args()
-ry=open('config.hjson','r')
+ry=open('tools/config.hjson','r')
 r=hjson.loads(ry.read())
 try:
     qid=int(arg.qqid)

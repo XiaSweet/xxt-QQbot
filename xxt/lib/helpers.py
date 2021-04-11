@@ -3,7 +3,7 @@ import random
 from typing import Sequence
 
 from nonebot import get_bots
-from nonebot.typing import Bot, Event
+from nonebot.adapters import Bot, Event
 
 from .typing import Expression_T
 
