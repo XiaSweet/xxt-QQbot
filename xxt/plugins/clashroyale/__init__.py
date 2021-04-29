@@ -5,6 +5,7 @@ from nonebot.typing import T_State
 #import xxt.plugins.clashroyale.get_deta as gets
 from xxt.lib.helpers import render_expression as expr
 import xxt.lib.systemre as e
+import subprocess
 #示例代码段
 cr_cbx = on_keyword("查宝箱", rule=to_me(), priority=5,block=True)
 @cr_cbx.handle()
