@@ -1,8 +1,8 @@
 from nonebot import on_keyword
-from nonebot.rule import to_me,keyword
+from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.typing import T_State
-import xxt.plugins.clashroyale.get_deta as get
+#import xxt.plugins.clashroyale.get_deta as gets
 from xxt.lib.helpers import render_expression as expr
 import xxt.lib.systemre as e
 #示例代码段
@@ -24,7 +24,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     #if msg not in ["上海", "北京"]:
        # await cr_cbx.reject("你想查询的城市暂不支持，请重新输入！")
         await cr_cbx.send(expr(e.SYSTEM_WAITING),at_sender=T_State)
-        msg_cr_cbx = await get.cr_cbx(re_msg)
+        msg_cr_cbx = subprocess.getoutput("python xxt/plugins/clashroyale/lib/chests.py -u '%s'"%(re_msg))
         await cr_cbx.finish(msg_cr_cbx)
 
 cr_xyh = on_keyword({'查用户','Tag查CR','用户查询'}, rule=to_me(), priority=4,block=True)
@@ -43,7 +43,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         await cr_xyh.reject('您的TAG似乎不对，再试试吧',at_sender=True)
     else: 
         await cr_xyh.send(expr(e.SYSTEM_WAITING)+'\rPs:小管家目前的能力暂时无法解析COC与荒野的TAG号，日后更新敬请谅解',at_sender=True)
-        msg_cr_xyh = await get.cr_xyh(re_msg)
+        msg_cr_xyh = await subprocess.getoutput("python xxt/plugins/clashroyale/lib/user.py -u '%s'"%(re_msg))
         await cr_xyh.finish(msg_cr_xyh)
 
 cr_zdy = on_keyword('找队友', rule=to_me(), priority=3,block=True)
@@ -53,7 +53,7 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
 @cr_zdy.got("msg")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
     await cr_zdy.send('Ps:小管家目前的能力只能在皇室部落范围内，望稍等一下',at_sender=True)
-    req_m = await get.cr_zdy()
+    req_m = subprocess.getoutput("python xxt/plugins/clashroyale/lib/findfrind.py")
     await cr_zdy.finish(req_m)
 
 cr_cwgl = on_keyword('部落战概览', rule=to_me(), priority=2,block=True)
@@ -63,5 +63,5 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
 @cr_cwgl.got("msg")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
     await cr_cwgl.send('Ps:小管家目前的能力只能在皇室大部落范围内，望稍等一下',at_sender=True)
-    req_m = await get.cr_cwgl()
+    req_m = subprocess.getoutput("python xxt/plugins/clashroyale/lib/viewclan.py")
     await cr_cwgl.finish(req_m)
