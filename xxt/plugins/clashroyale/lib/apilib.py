@@ -60,7 +60,7 @@ def cr_user(tag):
             info_bl='其他部落'
         return info["name"],info_bl
     else:
-        return
+        return None,False
 #皇家部落-长老捐卡审核
 def bl_upgrade_jk(ret,juanka=450,tag=None):
     if tag == None:

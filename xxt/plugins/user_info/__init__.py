@@ -23,9 +23,15 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
                 state["tag"]=tag
                 state["qid"]=event.user_id
             else:
-                await yhbd.finish('出现错误了:\n你先前已在小管家这里注册TAG，需要重新绑定请联系部落首领@Ver.冬瓜萌萌！')
+                lists = cursor.fetchall()
+                if lists[0][2]=='bs':
+                    gname='荒野乱斗'
+                elif lists[0][2]=='cr':
+                    gname='皇室战争'
+                await yhbd.finish(f'你已在小管家这里登记这个TAG哦，重新绑定请联系部落首领@Ver.冬瓜萌萌！\n\
+TAG绑定信息：{gname}@{lists[0][4]}')
     else:
-        await yhbd.finish('或许你的账户实力婉如天上的星星令人难以分清，重新试试吧QAQ\n\
+        await yhbd.finish('或许你的账户实力婉如天上的星星令人难以分清，请根据使用指引修改的你命令参数QAQ\n\
 使用指引：用户绑定+你的游戏TAG，不需要备注游戏我会自动识别')
 #登记用户信息
 @yhbd.got("tag", prompt="告诉我你想绑定的TAG号，不区分荒野和皇室哦")
@@ -34,8 +40,19 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     #获取变量
     tag=state["tag"]
     qid=state["qid"]
-    game="bs"
-    gname='Dabble冬瓜'
+    from xxt.plugins.clashroyale.lib import apilib as crapi
+    gname,clans=crapi.cr_user(tag)
+    if gname != None:
+        game='cr'
+    else:
+        from xxt.plugins.huangye.lib import chaxun as bsapi
+        stat,info=bsapi.req_bs(tag)
+        if stat == True:
+            game='bs'
+            yh=info['player_info']
+            gname=yh['name']
+        else:
+            await yhbd.finish('你的游戏TAG在支持游戏数据库内均无法搜索到，请检查后再试')
     import xxt.plugins.user_info.synclib as sc
     sc.cg(qid,game,tag,gname)
     conn = pymysql.connect(**sc.yyk)
@@ -60,7 +77,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
             for data in lists:
                 if data[0]==qid and data[2]=='bs':
                     jg=(jg+'\n')
-                    jg=(jg+f'{data[1]}.{data[4]}:#{data[3]}'
+                    jg=(jg+f'{data[1]}.{data[4]}#{data[3]}'
                     )
         conn.commit()
         conn.close()
