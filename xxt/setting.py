@@ -1,7 +1,23 @@
 from datetime import timedelta
 
 #欢迎进入夏小甜De配置文件夹
-#以下信息为设置小管家的专属文件，如果不清楚设置的内容则不建议精简本行注释代码
+#本信息为设置小管家的专属文件，如果不清楚设置的内容则不建议精简本行注释代码
+#Debug数据库设置
+yykd = dict(
+        host = 'localhost',
+        user = 'xiasweet',
+        passwd = 'asNhZFw7BYCcTksZ',
+        db = 'xiasweet',
+        charset = 'utf8'
+)
+#实装数据库设置
+yyk = dict(
+        host = '172.17.0.1',
+        user = 'xiasweet',
+        passwd = 'asNhZFw7BYCcTksZ',
+        db = 'xiasweet',
+        charset = 'utf8'
+)
 #NONEBOT基础设置
 SUPERUSERS = {1172608638}
 COMMAND_START = {'', '/', '!', '／', '！'}
@@ -16,4 +32,6 @@ TXAI_APP_KEY = 'mSTstLFLxSdO6SRp'
 #维护模式开关
 Maintenance = True
 #配置文件结束
+
+
 

@@ -1,20 +1,14 @@
 import pymysql
 import asyncio
-yyk = dict(
-        host = 'localhost',
-        user = 'xiasweet',
-        passwd = 'asNhZFw7BYCcTksZ',
-        db = 'xiasweet',
-        charset = 'utf8'
-)
+import xxt.config as xc
 #sql初始化
-def csh(args=yyk):
+def csh(args=xc.yyk):
     conn = pymysql.connect(**args)
     cursor = conn.cursor()
     cursor.execute("drop table if exists xiasweet")
     cursor.execute("create table xiasweet(qid bigint,id int,game varchar(20),tag varchar(20),name varchar(20),state int)")
 #查询并写入用户
-def cg(qid,gid,tag,gname,args=yyk):
+def cg(qid,gid,tag,gname,args=xc.yyk):
     conn = pymysql.connect(**args)
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid} ")
@@ -22,24 +16,23 @@ def cg(qid,gid,tag,gname,args=yyk):
     z=1
     st=1
     for l in lb:
-        if l[1] != None:
+        if l[2] != None:
             z=z+1
-        if l[1] == None:
+        if l[2] == None:
             break
+    cursor.execute(f"SELECT * FROM `xiasweet`")
+    lb = cursor.fetchall()
     for l in lb:
-        if l[5] != None:
+        if l[0] != None:
             st=st+1
-        if l[5] == None:
+        if l[0] == None:
             break
-    cursor.execute(f'INSERT INTO `xiasweet`  VALUES ({qid},{z},"{gid}","{tag}","{gname}",{st})')
+    cursor.execute(f'INSERT INTO `xiasweet`  VALUES ({st},{qid},{z},"{gid}","{tag}","{gname}")')
     conn.commit()
     conn.close()
 #游戏类型检测代码
 def jc(data,gameid):
     for das in data:
-        if das[2]==gameid:
+        if das[3]==gameid:
             return True
     return False
-#专用测试代码
-def cx(args=yyk):
-    return None

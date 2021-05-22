@@ -1,5 +1,5 @@
 from nonebot import on_message
-from xxt.lib.helpers import render_expression as expr
+from lib.nblib.helpers import render_expression as expr
 from nonebot.adapters.cqhttp import escape
 from nonebot.log import logger
 from nonebot.rule import to_me
@@ -7,9 +7,9 @@ from nonebot.adapters import Bot, Event
 #智库初始化
 import sys
 sys.path.append("xxt/plugins/chat")
-import xxt.lib.smartlib as e
+import lib.nblib.smartlib as e
 import chat_text as txchat
-import xxt.setting.config as cf
+import xxt.setting as cf
 TXAI_ID = cf.TXAI_APP_ID
 TXAI_KEY = cf.TXAI_APP_KEY
 chat = on_message(rule=to_me(), priority=10, block=True)

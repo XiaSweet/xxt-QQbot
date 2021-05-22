@@ -20,16 +20,16 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
             cursor = conn.cursor()
             lists=cursor.execute(f'SELECT * FROM `xiasweet` WHERE `tag` = "{tag}" and `qid`={event.user_id}')
             if lists == 0:
-                state["tag"]=tag
+                state["tag"]=tag.upper()
                 state["qid"]=event.user_id
             else:
                 lists = cursor.fetchall()
-                if lists[0][2]=='bs':
+                if lists[0][3]=='bs':
                     gname='荒野乱斗'
-                elif lists[0][2]=='cr':
+                elif lists[0][3]=='cr':
                     gname='皇室战争'
                 await yhbd.finish(f'你已在小管家这里登记这个TAG哦，重新绑定请联系部落首领@Ver.冬瓜萌萌！\n\
-TAG绑定信息：{gname}@{lists[0][4]}')
+TAG绑定信息：{gname}@{lists[0][5]}')
     else:
         await yhbd.finish('或许你的账户实力婉如天上的星星令人难以分清，请根据使用指引修改的你命令参数QAQ\n\
 使用指引：用户绑定+你的游戏TAG，不需要备注游戏我会自动识别')
@@ -40,7 +40,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     #获取变量
     tag=state["tag"]
     qid=state["qid"]
-    from xxt.plugins.clashroyale.lib import apilib as crapi
+    from lib.clashroyale import apilib as crapi
     gname,clans=crapi.cr_user(tag)
     if gname != None:
         game='cr'
@@ -66,18 +66,18 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         if cr==True:
             jg=(jg+'皇室战争：')
             for data in lists:
-                if data[0]==qid and data[2]=='cr':
+                if data[1]==qid and data[3]=='cr':
                     jg=(jg+'\n')
-                    jg=(jg+f'{data[1]}.{data[4]}#{data[3]}'
+                    jg=(jg+f'{data[2]}.{data[5]}#{data[4]}'
                     )
         if bs == True:
             if cr==True:
                 jg=(jg+'\n')
             jg=(jg+'荒野乱斗：')
             for data in lists:
-                if data[0]==qid and data[2]=='bs':
+                if data[1]==qid and data[3]=='bs':
                     jg=(jg+'\n')
-                    jg=(jg+f'{data[1]}.{data[4]}#{data[3]}'
+                    jg=(jg+f'{data[2]}.{data[5]}#{data[4]}'
                     )
         conn.commit()
         conn.close()

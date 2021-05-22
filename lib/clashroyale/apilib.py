@@ -4,6 +4,7 @@ import urllib.error
 import json
 import ssl
 #皇室战争API基础应用库
+#前排提示：请学会for import参数正确复用插件
 #CR 基础API模块
 def crapi(menu,tag,menu2='',stat=0):
     cr_key='xxt/plugins/clashroyale/lib/mykey.txt'
@@ -60,7 +61,7 @@ def cr_user(tag):
             info_bl='其他部落'
         return info["name"],info_bl
     else:
-        return
+        return None,False
 #皇家部落-长老捐卡审核
 def bl_upgrade_jk(ret,juanka=450,tag=None):
     if tag == None:

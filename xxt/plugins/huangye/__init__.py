@@ -2,8 +2,8 @@ from nonebot import on_keyword
 from nonebot.rule import to_me,keyword
 from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.typing import T_State
-from xxt.lib.helpers import render_expression as expr
-import xxt.lib.systemre as e
+from lib.nblib.helpers import render_expression as expr
+import lib.nblib.smartlib as e
 #示例代码段
 hy_czj = on_keyword("荒野查询", rule=to_me(), priority=5,block=True)
 @hy_czj.handle()
