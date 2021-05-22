@@ -9,8 +9,10 @@ import lib.nblib.smartlib as e
 cr_cbx = on_keyword("查宝箱", rule=to_me(), priority=4,block=True)
 @cr_cbx.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
-    args = str(event.message).replace(' ','')  # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
-    if args !='查宝箱':    
+    args = str(event.get_message()).replace(' ','')
+    args = str(event.get_message()).replace('\n','')    # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
+    if args !='查宝箱':
+        await cr_cbx.send(args,at_sender=True)
         import re
         try:
             bdzh=re.search('@[1-9]+',args).group()
@@ -30,7 +32,8 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
             if bdzh!='':
                 bdzh=bdzh.replace('@','')
                 from .get_deta import bdk
-                bdzh=await bdk(event.user_id,bdzh)
+                import xxt.setting as xs
+                bdzh=await bdk(event.user_id,bdzh,xs.yyk)
                 if bdzh == None:
                     await cr_cbx.finish(expr(e.mbid),at_sender=True)
                 else:
@@ -48,7 +51,7 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
 @cr_cbx.got("msg", prompt="请告诉我你要查询的用户TAG号？")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
     msg = state["msg"]
-    await cr_cbx.send((f'皇室CR查宝箱Debug：@{msg}'),at_sender=True) # expr(e.SYSTEM_WAITING)
+    await cr_cbx.send(expr(e.SYSTEM_WAITING)),at_sender=True) # expr(e.SYSTEM_WAITING)
     from .get_deta import cbx as gdata
     msg_cr_cbx = await gdata(msg,'cr_cbx')
     await cr_cbx.finish(msg_cr_cbx)

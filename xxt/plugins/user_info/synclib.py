@@ -1,6 +1,6 @@
 import pymysql
 import asyncio
-import xxt.config as xc
+import xxt.setting as xc
 #sql初始化
 def csh(args=xc.yyk):
     conn = pymysql.connect(**args)
@@ -23,9 +23,9 @@ def cg(qid,gid,tag,gname,args=xc.yyk):
     cursor.execute(f"SELECT * FROM `xiasweet`")
     lb = cursor.fetchall()
     for l in lb:
-        if l[0] != None:
+        if l[0] == st:
             st=st+1
-        if l[0] == None:
+        if l[0] != st:
             break
     cursor.execute(f'INSERT INTO `xiasweet`  VALUES ({st},{qid},{z},"{gid}","{tag}","{gname}")')
     conn.commit()

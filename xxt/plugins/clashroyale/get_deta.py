@@ -22,15 +22,8 @@ async def cbx(tag: str,rw):
         #print('出现无法解决的错误了，请联系管理员帮忙维护吧(⊙o⊙)')
     else:
         return('出现无法解决的错误了，请联系管理员帮忙维护吧(⊙o⊙)')
-async def bdk(qid,idh):
+async def bdk(qid,idh,yyk):
     import pymysql
-    yyk = dict(
-        host = 'localhost',
-        user = 'xiasweet',
-        passwd = 'asNhZFw7BYCcTksZ',
-        db = 'xiasweet',
-        charset = 'utf8'
-    )
     conn = pymysql.connect(**yyk)
     cursor = conn.cursor()
     e=cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid} and `id` = {idh}")

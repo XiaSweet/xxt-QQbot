@@ -15,8 +15,8 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
             await cr_cbx.reject('您的TAG似乎不对，再试试吧',at_sender=True)
         else: 
             import pymysql
-            from .synclib import yyk
-            conn = pymysql.connect(**yyk)
+            import xxt.setting as xs
+            conn = pymysql.connect(**xs.yyk)
             cursor = conn.cursor()
             lists=cursor.execute(f'SELECT * FROM `xiasweet` WHERE `tag` = "{tag}" and `qid`={event.user_id}')
             if lists == 0:
@@ -54,8 +54,9 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         else:
             await yhbd.finish('你的游戏TAG在支持游戏数据库内均无法搜索到，请检查后再试')
     import xxt.plugins.user_info.synclib as sc
+    import xxt.setting as xs
     sc.cg(qid,game,tag,gname)
-    conn = pymysql.connect(**sc.yyk)
+    conn = pymysql.connect(**xs.yyk)
     cursor = conn.cursor()
     cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid} ")
     lists = cursor.fetchall()
