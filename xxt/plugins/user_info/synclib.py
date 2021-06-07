@@ -14,22 +14,30 @@ def cg(qid,gid,tag,gname,args=xc.yyk):
     cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid} ")
     lb = cursor.fetchall()
     z=1
-    st=1
     for l in lb:
         if l[2] != None:
             z=z+1
-        if l[2] == None:
+        elif l[2] == None:
             break
     cursor.execute(f"SELECT * FROM `xiasweet`")
     lb = cursor.fetchall()
+    st=1
     for l in lb:
         if l[0] == st:
             st=st+1
-        if l[0] != st:
+        elif l[0] != st:
             break
-    cursor.execute(f'INSERT INTO `xiasweet`  VALUES ({st},{qid},{z},"{gid}","{tag}","{gname}")')
-    conn.commit()
-    conn.close()
+    try:
+        cursor.execute(f'INSERT INTO `xiasweet`  VALUES ({st},{qid},{z},"{gid}","{tag}","{gname}")')
+    except:
+        conn.commit()
+        conn.close()
+        return('很抱歉，小管家暂时无法记住你的账号，请稍后再试')
+        #return(f'源代码：{lb}\n错误提示：{st},{qid},{z},"{gid}","{tag}","{gname}"') #Debug代码，实际运行应去除
+    else:
+        conn.commit()
+        conn.close()
+        return True
 #游戏类型检测代码
 def jc(data,gameid):
     for das in data:
