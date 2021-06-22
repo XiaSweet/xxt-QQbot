@@ -1,7 +1,7 @@
 import nonebot
 from nonebot.adapters.cqhttp import Bot as CQHTTPBot
 nonebot.init()
-nonebot.load_plugin("nonebot_plugin_test")
+#nonebot.load_plugin("nonebot_plugin_test")
 driver = nonebot.get_driver()
 driver.register_adapter("cqhttp", CQHTTPBot)
 nonebot.load_builtin_plugins()

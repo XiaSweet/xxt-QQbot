@@ -91,7 +91,8 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     state["msg"] = '233'
 @cr_cwgl.got("msg")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
-    await cr_cwgl.send('Ps:小管家目前的能力只能在皇室大部落范围内，望稍等一下',at_sender=True)
-    req_m = subprocess.getoutput("python xxt/plugins/clashroyale/lib/viewclan.py")
+    await cr_cwgl.send(expr(e.SYSTEM_WAITING),at_sender=True)
+    from .get_deta import cr_blzgl
+    req_m =await cr_blzgl('dbl')
     await cr_cwgl.finish(req_m)
 
