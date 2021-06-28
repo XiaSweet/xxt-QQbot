@@ -58,7 +58,7 @@ def cr_user(tag):
         elif info["clan"]["tag"]=='#JY8YVC0':
             info_bl='小部落'
         else:
-            info_bl='其他部落'
+            info_bl='同好会'
         return info["name"],info_bl
     else:
         return None,False
@@ -97,16 +97,15 @@ def get_userclans(tag):
     user_info,get_stat=crapi('players',tag)
     if get_stat == True:
         user_clantag=user_info['clan']['tag']
-        if user_clantag == ('#JY8YVC0'):
-            clantag=user_clantag.replace('#','')
+        clantag=user_clantag.replace('#','')
+        if clantag == ('JY8YVC0'):
             clanid='小部落'
             return user_info['name'],clantag,clanid
-        if user_clantag == ('#88GUJ80'):
-            clantag=user_clantag.replace('#','')
+        if clantag == ('88GUJ80'):
             clanid='大部落'
             return user_info['name'],clantag,clanid
         else:
-            return user_info['name'],'Don,t_huangjia_clan',None
+            return user_info['name'],clantag,'同好会'
     else:
         return None,None,None
 #部落战贡献查询

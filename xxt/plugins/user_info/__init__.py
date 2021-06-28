@@ -3,16 +3,21 @@ from nonebot import on_keyword
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.typing import T_State
-yhbd = on_keyword("绑定账号", rule=to_me(), priority=5,block=True)
+yhbd=on_keyword("绑定账号", priority=5,block=True) #,rule=to_me()
 @yhbd.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.message).strip()  # 原始信息
+    import lib.nblib.debuglib as delib
+    #维护模式检测
+    tag=await delib.jc_fix()
+    if tag!=None:
+        await yhbd.finish(tag)
     if args:    # 过滤可用信息
         import re
         try:
             tag=re.search('[A-Za-z0-9]+',args).group()
         except AttributeError:
-            await cr_cbx.reject('您的TAG似乎不对，再试试吧',at_sender=True)
+            await yhbd.reject('您的TAG似乎不对，再试试吧',at_sender=True)
         else: 
             import pymysql
             import xxt.setting as xs
@@ -40,14 +45,17 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     #获取变量
     tag=state["tag"]
     qid=state["qid"]
-    from lib.clashroyale import apilib as crapi
-    gname,clans=crapi.cr_user(tag)
+    import lib.cr.apilib as crapi
+    gname,ct,clan=crapi.get_userclans(tag)
     if gname != None:
         game='cr'
     else:
-        from lib.huangye import chaxun as bsapi
+        from lib.hy import chaxun as bsapi
         stat,info=bsapi.req_bs(tag)
         if stat == True:
+            #None值是临时用的，后续更新
+            clan='None'
+            ct='None'
             game='bs'
             yh=info['player_info']
             gname=yh['name']
@@ -55,14 +63,35 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
             await yhbd.finish('出现错误了：\n你的游戏TAG在支持游戏数据库内均无法搜索到，请检查后再试')
     from .synclib import cg
     import xxt.setting as xs
-    stat=cg(qid,game,tag,gname)
+    stat=await cg(qid,game,tag,gname,ct,clan)
     #数据库写入错误判断代码
     if stat != True:
         await yhbd.finish(stat)
+    elif stat==1: #开始绑定Tag号
+        if gname=='cr':
+            gname='皇室战争'
+        elif gname=='bs':
+            gname='荒野乱斗'
+        if hasattr(event,"group_id") ==False:
+            gid=1062326148
+        else:
+            gid=event.group_id
+        card=f'[{clan}]{name}' 
+        try:
+            await bot.call_api("set_group_card",**{'group_id':gid,'user_id':qid,'card':card})
+        except:
+            stat=2
+        await yhbd.finish(f'为方便使用，小管家已自动绑定为默认用户且部落茶话会群昵称同步修改。\n您目前绑定的用户是：{gname}@{game}#{tag}',at_sender=True)
+    if stat==2:
+        await yhbd.finish(f'绑定成功，但还没有设置默认Tag，为后续服务请尽快通过“默认绑定”服务绑定默认账户哦(⊙o⊙)\n您绑定的用户：{gid}@{gname}#{tag}',,at_sender=True)
     else:
+        if gname=='cr':
+            gname='皇室战争'
+        elif gname=='bs':
+            gname='荒野乱斗'
         await yhbd.finish(f'绑定成功啦，您现在绑定的用户是：{gname}@{game}#{tag}')
 #附加的小插件：用户绑定查询
-bdcx = on_keyword("cbd", rule=to_me(), priority=4,block=True)
+bdcx=on_keyword("cbd", rule=to_me(), priority=4,block=True)
 @bdcx.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).replace(' ','')
@@ -98,7 +127,6 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
                         jg=(jg+'\n')
                         jg=(jg+f'{data[2]}.{data[5]}#{data[4]}'
                         )
-            conn.commit()
             conn.close()
             await yhbd.finish(jg)
         else:

@@ -12,7 +12,7 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).replace(' ','')
     args = str(event.get_message()).replace('\n','')    # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海
     if args !='查宝箱':
-        await cr_cbx.send(args,at_sender=True)
+        #await cr_cbx.send(args,at_sender=True)
         import re
         try:
             bdzh=re.search('@[1-9]+',args).group()
