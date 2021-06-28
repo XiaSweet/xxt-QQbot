@@ -3,7 +3,7 @@ from nonebot import on_keyword
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.typing import T_State
-yhbd=on_keyword("绑定账号", priority=5,block=True) #,rule=to_me()
+yhbd=on_keyword("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
 @yhbd.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.message).strip()  # 原始信息
@@ -64,32 +64,29 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     from .synclib import cg
     import xxt.setting as xs
     stat=await cg(qid,game,tag,gname,ct,clan)
+    if game=='cr':
+        game='皇室战争'
+    elif game=='bs':
+        game='荒野乱斗'
     #数据库写入错误判断代码
-    if stat != True:
+    if stat != True and stat!=2 and stat!=1:
         await yhbd.finish(stat)
     elif stat==1: #开始绑定Tag号
-        if gname=='cr':
-            gname='皇室战争'
-        elif gname=='bs':
-            gname='荒野乱斗'
         if hasattr(event,"group_id") ==False:
-            gid=1062326148
+            grid=1062326148
         else:
-            gid=event.group_id
-        card=f'[{clan}]{name}' 
+            grid=event.group_id
+        ct=f'[{clan}]{gname}' 
         try:
-            await bot.call_api("set_group_card",**{'group_id':gid,'user_id':qid,'card':card})
+            await bot.call_api("set_group_card",**{'group_id':int(grid),'user_id':int(qid),'card':ct})
         except:
+            await yhbd.send("Debug：绑定默认账户出现异常")
             stat=2
-        await yhbd.finish(f'为方便使用，小管家已自动绑定为默认用户且部落茶话会群昵称同步修改。\n您目前绑定的用户是：{gname}@{game}#{tag}',at_sender=True)
+        await yhbd.finish(f'为方便使用，小管家已自动绑定为默认用户且部落茶话会群昵称同步修改。\n您目前绑定的用户是：{game}@{gname}#{tag}',at_sender=True)
     if stat==2:
-        await yhbd.finish(f'绑定成功，但还没有设置默认Tag，为后续服务请尽快通过“默认绑定”服务绑定默认账户哦(⊙o⊙)\n您绑定的用户：{gid}@{gname}#{tag}',,at_sender=True)
+        await yhbd.finish(f'绑定成功，但还没有设置默认Tag，为后续服务请尽快通过“默认绑定”服务绑定默认账户哦(⊙o⊙)\n您绑定的用户：{game}@{gname}#{tag}',at_sender=True)
     else:
-        if gname=='cr':
-            gname='皇室战争'
-        elif gname=='bs':
-            gname='荒野乱斗'
-        await yhbd.finish(f'绑定成功啦，您现在绑定的用户是：{gname}@{game}#{tag}')
+        await yhbd.finish(f'绑定成功啦，您现在绑定的用户是：{game}@{gname}#{tag}')
 #附加的小插件：用户绑定查询
 bdcx=on_keyword("cbd", rule=to_me(), priority=4,block=True)
 @bdcx.handle()

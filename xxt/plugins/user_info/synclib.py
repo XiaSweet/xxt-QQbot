@@ -35,7 +35,7 @@ async def cg(qid,gid,tag,gname,clid,clan,args=xc.yyk):
         #return(f'源数据库写入错误,代码提示：{st},{qid},{z},"{gid}","{tag}","{gname}","{clid}","{clan}"') #Debug代码，实际运行应去除
     else:
         conn.commit()
-        bd=cursor.execute(f"SELECT * FROM `default_user` WHERE `qid` = {qid} ")
+        bd=cursor.execute(f"SELECT * FROM default_user WHERE `qid` = {qid} ")
         def re_name(gn):
             if gn=='bs':
                 return '荒野乱斗'
@@ -69,25 +69,28 @@ def duser(qid,gname,clan,name,tag,args=xc.yyk):
     conn = pymysql.connect(**args)
     cursor = conn.cursor()
     try:
-        lists=cursor.execute(f"SELECT * FROM `default_user` WHERE `qid` = {qid} ")
+        lists=cursor.execute(f"SELECT * FROM `default_user` WHERE `qid`={qid} ")
     except:
         conn.commit()
         conn.close()
-        return False
+        return lists
     if lists == 0:
+        import xxt.setting as xs
         try:
-            lb=cursor.execute(f'INSERT INTO `default_user`  VALUES ({qid},"{gname}","{clan}","{name}","{tag}")')
+            lb=cursor.execute(f'INSERT INTO default_user  VALUES ({qid},"{gname}","{clan}","{name}","{tag}")')
         except:
+            conn.commit()
             conn.close()
+            if xs.Debug==True:
+                return(f'源代码：{lb}\n错误提示：{qid},"{gname}","{clan}","{name}","{tag}"') #Debug代码，实际运行应去除
             return False
-            #return(f'源代码：{lb}\n错误提示：{qid},"{gname}","{clan}","{name}","{tag}"') #Debug代码，实际运行应去除
         else:
             conn.commit()
             conn.close()
             return True
     else:
         try:
-            cursor.execute(f"UPDATE `default_user` SET `gname`='{gname}',`clan`='{clan}',`name`='{name}',`tag`='{tag}' WHERE `default_user`.`qid`='{qid}'")
+            cursor.execute(f"UPDATE `default_user` SET `gname`='{gname}',`clan`='{clan}',`name`='{name}',`tag`='{tag}' WHERE `qid`='{qid}'")
         except:
             conn.commit()
             conn.close()
