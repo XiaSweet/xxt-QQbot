@@ -16,7 +16,7 @@ async def cbx(tag: str,rw):
                 pass
             else:
                 chest=(chest+'\n')
-                chest=(chest+f"宝箱位置+{item['index']}：{item['name']}" )
+                chest=(chest+f"宝箱+{item['index']}：{item['name']}" )
                 chest= fanyi.chest(chest)
         return chest
     elif stat == False:

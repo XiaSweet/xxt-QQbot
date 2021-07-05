@@ -24,10 +24,10 @@ def lucky(ce):
     else:
         lck_po = lck_po.replace('+','')
         lck_po = int(lck_po)
-        if lck_po < 100:
-            return '(有点距离了)'
-        elif lck_po < 300:
+        if lck_po < 300:
             return '(还早呢QAq)'
+        elif lck_po < 300:
+            return '(有点距离了)'
         elif lck_po < 50:
             return '(加油，不远了owo)'
         elif lck_po < 30:

@@ -27,8 +27,8 @@ async def _(bot: Bot, event: Event, state: dict):
         state['info'] = 'qqface'
         state['msg'] = re_msg
     elif 'CQ:image' in args:
-        await chat.finish(f'[CQ:image,file=https://s3.ax1x.com/2021/02/22/yHzupn.png'+',type=show,id=40000]')
-        #await chat.finish('无法分析的图片文件')
+        #await chat.finish(f'[CQ:image,file=https://s3.ax1x.com/2021/02/22/yHzupn.png'+',type=show,id=40000]')
+        await chat.finish('无法分析的图片文件')
     elif args:
         state['info'] = 'texts'
         state['msg'] = args

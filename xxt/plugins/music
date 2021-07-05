@@ -1,0 +1,19 @@
+#小管家测试猜歌曲APP
+from nonebot import on_keyword
+from lib.nblib.helpers import render_expression as expr
+from nonebot.adapters.cqhttp import MessageSegment
+from nonebot.log import logger
+from nonebot.rule import to_me
+from nonebot.adapters import Bot, Event
+tingsong = on_keyword("music",rule=to_me(), priority=2, block=True)
+@tingsong.handle()
+async def _(bot: Bot, event: Event, state: dict):
+    args = str(event.message).strip()
+    state['music'] = True
+    await tingsong.send('欢迎来到Music世界，请欣赏演示歌曲(⊙o⊙)哦\n演示歌曲：活在当下的少女')
+@tingsong.got('music')
+async def _(bot: Bot, event: Event, state: dict):
+    #import os
+    #m=os.getcwd()
+    m=MessageSegment.record(file='http://data.xiasweet.com/?f=/caiqu_Music/02.mp3',cache=0,magic=1,timeout=30)
+    await tingsong.finish(m)
