@@ -1,7 +1,7 @@
 #Nonebot2基础模块
 from nonebot import on_keyword
 from nonebot.rule import to_me
-from nonebot.adapters.cqhttp import Bot, Event
+from nonebot.adapters.cqhttp import Bot, Event,MessageSegment
 from nonebot.typing import T_State
 yhbd=on_keyword("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
 @yhbd.handle()
@@ -82,11 +82,11 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         except:
             await yhbd.send("Debug：绑定默认账户出现异常")
             stat=2
-        await yhbd.finish(f'为方便使用，小管家已自动绑定为默认用户且部落茶话会群昵称同步修改。\n您目前绑定的用户是：{game}@{gname}#{tag}',at_sender=True)
+        await yhbd.finish(MessageSegment.reply(event.message_id)+f'为方便使用，小管家已自动绑定为默认用户且部落茶话会群昵称同步修改。\n您目前绑定的用户是：{game}@{gname}#{tag}',at_sender=True)
     if stat==2:
-        await yhbd.finish(f'绑定成功，但还没有设置默认Tag，为后续服务请尽快通过“默认绑定”服务绑定默认账户哦(⊙o⊙)\n您绑定的用户：{game}@{gname}#{tag}',at_sender=True)
+        await yhbd.finish(MessageSegment.reply(event.message_id)+f'绑定成功，但还没有设置默认Tag，为后续服务请尽快通过“默认绑定”服务绑定默认账户哦(⊙o⊙)\n您绑定的用户：{game}@{gname}#{tag}',at_sender=True)
     else:
-        await yhbd.finish(f'绑定成功啦，您现在绑定的用户是：{game}@{gname}#{tag}')
+        await yhbd.finish(MessageSegment.reply(event.message_id)+f'绑定成功啦，您现在绑定的用户是：{game}@{gname}#{tag}')
 #附加的小插件：用户绑定查询
 bdcx=on_keyword("cbd", rule=to_me(), priority=4,block=True)
 @bdcx.handle()
@@ -125,6 +125,6 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
                         jg=(jg+f'{data[2]}.{data[5]}#{data[4]}'
                         )
             conn.close()
-            await yhbd.finish(jg)
+            await yhbd.finish(MessageSegment.reply(event.message_id)+jg)
         else:
-            await yhbd.finish('你还没有绑定游戏TAG呢，需要绑定TAG请使用”绑定账号“指令(⊙o⊙)哦')
+            await yhbd.finish(MessageSegment.reply(event.message_id)+'你还没有绑定游戏TAG呢，需要绑定TAG请使用”绑定账号“指令(⊙o⊙)哦')

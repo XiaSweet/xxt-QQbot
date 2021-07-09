@@ -33,6 +33,8 @@ async def _(bot: Bot, event: Event, state: dict):
     name=state['name']
     singer=state['singer']
     dl=state['downlink']
-    await tingsong.send(f'欢迎提前来到听歌识曲库，猜猜你能不能猜对(⊙o⊙)哦\nPS:在小管家听歌识曲插件完成前你还有点时间熟悉一下，有需要放入曲库的请剪辑后发送给部落管理员哦\n演示歌曲：{name} By {singer}')
-    m=MessageSegment.record(file=f'{dl}',cache=0,magic=1,timeout=30)
-    await tingsong.finish(m)
+    import asyncio
+    await tingsong.send(MessageSegment.reply(event.message_id)+f'欢迎来到听歌识曲库，猜猜你能不能猜对(⊙o⊙)哦，请注意你有60秒钟的回答时间\nPS:在小管家听歌识曲插件完成前你还有点时间熟悉一下，有需要放入曲库的请剪辑后发送给部落管理员哦')
+    await tingsong.send(MessageSegment.record(file=f'{dl}',cache=0,magic=1,timeout=30))
+    await asyncio.sleep(15)
+    await tingsong.finish(f'正确的答案是：{name} By {singer}，你答对了吗？')

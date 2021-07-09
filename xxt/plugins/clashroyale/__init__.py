@@ -1,6 +1,6 @@
 from nonebot import on_keyword
 from nonebot.rule import to_me
-from nonebot.adapters.cqhttp import Bot, Event
+from nonebot.adapters.cqhttp import Bot, Event,MessageSegment
 from nonebot.typing import T_State
 #import xxt.plugins.clashroyale.get_deta as gets
 from lib.nblib.helpers import render_expression as expr
@@ -20,14 +20,14 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
             try:
                 re_msg=re.search('[A-Za-z0-9]+',args).group()
             except AttributeError:
-                await cr_cbx.reject('您的TAG似乎不对，再试试吧',at_sender=True)
+                await cr_cbx.reject(MessageSegment.reply(event.message_id)+'您的TAG似乎不对，再试试吧',at_sender=True)
             except:
-                await cr_cbx.finish('出现了一些未知的错误，请稍后再试试吧',at_sender=True)
+                await cr_cbx.finish(MessageSegment.reply(event.message_id)+'出现了一些未知的错误，请稍后再试试吧',at_sender=True)
             else:
                 if re_msg!='':
                     state["msg"] = re_msg # 如果用户发送了参数则直接赋值
         except:
-            await cr_cbx.finish('出现了一些未知的错误，请稍后再试试吧',at_sender=True)
+            await cr_cbx.finish(MessageSegment.reply(event.message_id)+'出现了一些未知的错误，请稍后再试试吧',at_sender=True)
         else: 
             if bdzh!='':
                 bdzh=bdzh.replace('@','')
@@ -46,15 +46,15 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
         elif stat=='Wait':
             await cr_cbx.reject(jg,at_sender=True)
         if stat==False:
-            await cr_cbx.finish('对不起，我确实不记得你有绑定过CR的账号，无法提供服务，请检查后再试QaQ。\n绑定账户方式：账户绑定+空格+你的Tag号（不区分游戏）')
+            await cr_cbx.finish(MessageSegment.reply(event.message_id)+'对不起，我确实不记得你有绑定过CR的账号，无法提供服务，请检查后再试QaQ。\n绑定账户方式：账户绑定+空格+你的Tag号（不区分游戏）')
 
 @cr_cbx.got("msg", prompt="请告诉我你要查询的用户TAG号？")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
     msg = state["msg"]
-    await cr_cbx.send(expr(e.SYSTEM_WAITING),at_sender=True) # expr(e.SYSTEM_WAITING)
+    await cr_cbx.send(f'>  '+MessageSegment.at(event.user_id)+'\n'+expr(e.SYSTEM_WAITING)) # expr(e.SYSTEM_WAITING)
     from .get_deta import cbx as gdata
     msg_cr_cbx = await gdata(msg,'cr_cbx')
-    await cr_cbx.finish(msg_cr_cbx)
+    await cr_cbx.finish(MessageSegment.reply(event.message_id)+msg_cr_cbx)
 
 cr_xyh = on_keyword({'查用户','Tag查CR','用户查询'}, rule=to_me(), priority=4,block=True)
 @cr_xyh.handle()

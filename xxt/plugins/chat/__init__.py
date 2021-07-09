@@ -1,21 +1,19 @@
 from nonebot import on_message
 from lib.nblib.helpers import render_expression as expr
-from nonebot.adapters.cqhttp import escape
+from nonebot.adapters.cqhttp import MessageSegment,escape
 from nonebot.log import logger
 from nonebot.rule import to_me
 from nonebot.adapters import Bot, Event
+from .msxblib import xiaobinglib as xblib
 #智库初始化
-import sys
-sys.path.append("xxt/plugins/chat")
 import lib.nblib.smartlib as e
-import chat_text as txchat
 import xxt.setting as cf
-TXAI_ID = cf.TXAI_APP_ID
-TXAI_KEY = cf.TXAI_APP_KEY
 chat = on_message(rule=to_me(), priority=10, block=True)
 @chat.handle()
 async def _(bot: Bot, event: Event, state: dict):
     args = str(event.message).strip()
+    if cf.FixMode == True: #维护模式停服指令
+        await chat.finish(expr(e.Maintenance_CHAT))
     if 'CQ:record' in args:
         await chat.finish(expr(e.txchat_voice))
     elif ('&#91;'and'&#93;') in args:
@@ -23,7 +21,7 @@ async def _(bot: Bot, event: Event, state: dict):
         try:
             re_msg = re.search('[^&#91;]*[\u4e00-\u9fa5]',args).group()
         except AttributeError:
-            await chat.finish('未知的商店表情包')
+            await chat.finish(MessageSegment.reply(event.message_id)+'这个表情包我似乎不太认识，不好意思啦')
         state['info'] = 'qqface'
         state['msg'] = re_msg
     elif 'CQ:image' in args:
@@ -36,12 +34,12 @@ async def _(bot: Bot, event: Event, state: dict):
 async def _(bot: Bot, event: Event, state: dict):
     msg = state['msg']
     if state['info'] == 'texts':
-        # 通过封装的函数获取机器人的回复
-        reply = await txchat.anso(msg,TXAI_ID,TXAI_KEY)
+        # 通过封装的函数获取机器人的回复并回复用户的消息
+        reply = await xblib.chat(msg,cf.WB_uid,cf.WB_source,cf.WB_SUB)
         if reply:
-            await chat.finish(escape(reply))
+            await chat.finish(MessageSegment.reply(event.message_id)+escape(reply))
         # 如果调用失败，或者它返回的内容我们目前处理不了，发送无法获取回复时的「表达」
-        # 这里的 render_expression() 函数会将一个「表达」渲染成一个字符串消息
+        # 这里的 expr() 函数会将一个「表达」渲染成一个字符串消息
         await chat.finish(expr(e.TXCHAT_NOANSWER))
     elif state['info'] == 'qqface':
         import chatsys
