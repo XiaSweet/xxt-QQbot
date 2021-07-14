@@ -15,7 +15,10 @@ class xiaobinglib:
             'Referer': 'https://api.weibo.com/chat/'
         }
         response = requests.post(url_send, data=data, headers=headers).json()
-        sendMsg = response['text']
+        try:
+            sendMsg = response['text']
+        except KeyError:
+            return ''
         while True:
             url_get = 'https://api.weibo.com/webim/2/direct_messages/conversation.json?uid={}&source={}'.format(uid, source)
             response = requests.get(url_get, headers=headers).json()

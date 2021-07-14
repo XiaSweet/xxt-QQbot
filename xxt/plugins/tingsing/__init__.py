@@ -26,15 +26,13 @@ async def _(bot: Bot, event: Event, state: dict):
     state['singer']=lists[0][2]
     state['name']=lists[0][1]
     conn.close()
-@tingsong.got('id')
-async def _(bot: Bot, event: Event, state: dict):
-    #import os
-    #m=os.getcwd()
-    name=state['name']
-    singer=state['singer']
-    dl=state['downlink']
-    import asyncio
     await tingsong.send(MessageSegment.reply(event.message_id)+f'欢迎来到听歌识曲库，猜猜你能不能猜对(⊙o⊙)哦，请注意你有60秒钟的回答时间\nPS:在小管家听歌识曲插件完成前你还有点时间熟悉一下，有需要放入曲库的请剪辑后发送给部落管理员哦')
-    await tingsong.send(MessageSegment.record(file=f'{dl}',cache=0,magic=1,timeout=30))
-    await asyncio.sleep(15)
+    await tingsong.send(MessageSegment.record(file=f"{state['downlink']}",cache=0,magic=1,timeout=30))
+    import asyncio
+    await asyncio.sleep(60)
+@tingsong.got('user_name',prompt="<\n请告诉我你的答案")
+async def _(bot: Bot, event: Event, state: dict):
+    singer=state['singer']
+    name=state['name']
+    uname=state['user_name']
     await tingsong.finish(f'正确的答案是：{name} By {singer}，你答对了吗？')

@@ -5,6 +5,7 @@ from nonebot.typing import T_State
 from lib.nblib.helpers import render_expression as expr
 import lib.nblib.smartlib as e
 import random
+from asyncio import sleep
 russ_ban = on_keyword("命运轮回", rule=to_me(), priority=4,block=True)
 @russ_ban.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
@@ -49,5 +50,13 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
                 await russ_ban.finish(MessageSegment.reply(event.message_id)+'你今天堪称欧皇，小管家并不敢对你下手QAQ')
         except:
             await russ_ban.finish(MessageSegment.reply(event.message_id)+'你今天堪称欧皇，小管家并不敢对你下手QAQ')
-        await russ_ban.finish('>  '+MessageSegment.at(event.user_id)+'错误提示：\n恭喜你，由于小管家相当讨厌欧皇，所以恭喜万众瞩目的阁下获得禁言套餐Plus：88888(约1天)\
-的奖励，请等待管理员主动解除或@Ver.冬瓜萌萌，再来不便敬请谅解！\nPs:本套餐中奖概率极低，阁下今天具有大展身手的潜力，加油✧(≖ ◡ ≖✿)')
+        await russ_ban.send('>  '+MessageSegment.at(event.user_id)+'错误提示：\n恭喜你，由于小管家相当讨厌欧皇，所以恭喜万众瞩目的阁下获得禁言套餐Plus：88888(约1天)\
+的奖励，请等待管理员主动解除或@Ver.冬瓜萌萌，再来不便敬请谅解！\nPs:本套餐中奖概率极低，阁下今天具有大展身手的潜力;加油，祝好运✧(≖ ◡ ≖✿)')
+        await sleep(10)
+        jy=random.randint(0,88888)
+        try:
+            await bot.call_api("send_private_msg",**{'user_id':int(event.user_id),'group_id':int(event.group_id),'message':f'你这么可爱小管家并不想让你这么禁言了，阁下实际禁言时间约{jy}秒，到时将自动解除禁言，请自行换算一下；若时间过长请等待部落管理员手动解禁言哦'})
+        except:
+            await russ_ban.finish()
+        await bot.call_api("send_msg",**{'group_id':240253684,'message':f'部落LOGs:@{event.user_id}在群{event.group_id}里触发了{jy}的禁言时长(⊙o⊙)哦'})
+        await russ_ban.finish()
