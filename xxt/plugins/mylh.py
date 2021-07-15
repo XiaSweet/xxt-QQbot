@@ -10,10 +10,7 @@ russ_ban = on_keyword("命运轮回", rule=to_me(), priority=4,block=True)
 @russ_ban.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     import random
-    state["sjz"] = random.random()
-@russ_ban.got("sjz")
-async def handle_msg(bot: Bot, event: Event, state: T_State):
-    sjz=state["sjz"] #随机禁言自律模块
+    sjz=random.random() #随机禁言自律模块
     if hasattr(event,"group_id") ==False:
         await russ_ban.finish(f'你都私信给我了我也只能跟你乐一乐了，不信你去茶话会里玩命运轮回试试？')
     async def zxjy(gid,qid,sc,ts,bg,s='秒'):
@@ -32,7 +29,10 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         else:
             await russ_ban.finish('>  '+MessageSegment.at(event.user_id)+'\n'+f'您的运气值{ts}，恭喜你获得禁言{sc}{s}套餐{bg}')
     if sjz < 0.35:
-        await russ_ban.finish(MessageSegment.reply(event.message_id)+'恭喜你，你的运气差到跟小管家难兄难弟了，吃亏是福啊（*＾-＾*）')
+        try:
+            await russ_ban.finish(MessageSegment.reply(event.message_id)+'恭喜你，你的运气差到跟小管家难兄难弟了，吃亏是福啊（*＾-＾*）')
+        except AttributeError:
+            await russ_ban.finish('>  '+MessageSegment.at(event.user_id)+'\n恭喜你，你的运气差到跟小管家难兄难弟了，吃亏是福啊（*＾-＾*）')
     elif 0.35<sjz and sjz<0.7:
         jy=random.randint(0,60)
         await zxjy(event.group_id,event.user_id,jy,'还算可以','(⊙﹏⊙)祝你好运')

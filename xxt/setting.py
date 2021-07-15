@@ -25,7 +25,7 @@ del_flushmsg=True
 #微博网页版API，用来对接小冰，详情请自行百度，依赖 requests
 WB_uid = '5175429989'
 WB_source = '209678993'
-WB_SUB = '_2A25N71aEDeRhGeBO6lEY8S3KzzmIHXVunc9MrDV8PUNbmtAKLVfMkW9NSjDPY0nx-46OC_e6gYF2OT9oUoceH2KZ'
+WB_SUB = '_2A25N9CiEDeRhGeBO6lEY8S3KzzmIHXVugB1MrDV8PUNbmtB-LU3GkW9NSjDPYwLR1ciftLqjf5DKU7DHjmFYaTlg'
 #腾讯AI-API段鉴权配置 本信息已作废！
 TXAI_APP_ID = '2128916170'
 TXAI_APP_KEY = 'mSTstLFLxSdO6SRp'
