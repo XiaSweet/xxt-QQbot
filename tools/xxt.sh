@@ -3,10 +3,16 @@ echo '[夏小甜管家]正在检测程序完整性'
 source config.conf 
 cq_ver=v1.0.0-beta3
 if [ ! -d "/home/xxt-QQbot" ]; then
-  echo '[夏小甜管家]初始化夏小甜管家主程序'
+  echo '[夏小甜管家]小管家主程序需要初始化，请稍后'
+  cd /home
   git clone --depth=1 -b master https://github.com/XiaSweet/xxt-QQbot
   if [ $? -ne 0 ]; then
-   echo "\033[31m[夏小甜管家]很抱歉夏小甜管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
+   echo "[夏小甜管家]小管家程序初始化完成owo"
+   else
+   echo -e "\033[31m[夏小甜管家]小管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
+   echo "[夏小甜管家]请注意目前有20分钟的时间用来手动进入容器排查，请注意！"
+   sleep 1200
+   echo "[夏小甜管家]默认为问题已解决，正在自动重启"
    exit 1
    fi
 fi
@@ -43,7 +49,7 @@ if [ ! -f "$cqstat" ];then
 	echo -e '正在加载CQHTTP\033[32m'
 	wget "https://github.com/Mrs4s/go-cqhttp/releases/download/v${cq_ver}/go-cqhttp-v$cq_ver-$os-$os_type" -O /etc/xiaxiaotian/cq/cqhttp
 	if [ $? -ne 0 ]; then
-		echo "\033[31m[夏小甜管家]很抱歉CQHTTP下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
+		echo -e "\033[31m[夏小甜管家]很抱歉CQHTTP下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
 		exit 1
 	chmod -R 744 /etc/xiaxiaotian/cq/cqhttp
 	else
