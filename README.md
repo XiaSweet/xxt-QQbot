@@ -11,13 +11,13 @@
 运行环境     | 推荐版本 | 用途
  :-: | :-: | :-:
 Python| 3.9+ | 运行Nonebot协议所需要的组件
-Screen|任意|用于后台运行Miari 及Nonebot
 Nonebot |2.0.2| 基于OneBot标准的Python开发SDK
+BennyThink/realXiaoice |/| 真正唯一可用的微软小冰API
 ### 以下环境项目已自带：
 运行环境 | 用途
  :-: | :-:
 go-cqhttp|使用脚本部署时会自动安装，无法人为干预
-xiaxiaotian-QQbot| 游戏皇室战争及皇室战争部落“皇家.部落”的管理辅助
+xiaxiaotian-QQbot| 游戏皇室战争及皇室战争部落“皇家.部落”的管理辅助，现已升级为本项目
 ## 使用方法：
 ### （1）使用Docker快速部署
 部署Docker后使用如下指令配置并运行即可
@@ -50,3 +50,4 @@ nonebot/nonebot| https://github.com/nonebot/nonebot
 mamoe/mirai|https://github.com/mamoe/mirai
 iTXTech/mirai-native|  https://github.com/iTXTech/mirai-native
 Mrs4s/go-cqhttp |https://github.com/Mrs4s/go-cqhttp
+BennyThink/realXiaoice |https://github.com/BennyThink/realXiaoice
