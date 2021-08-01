@@ -1,10 +1,10 @@
 from nonebot import on_message
 from lib.nblib.helpers import render_expression as expr
-from nonebot.adapters.cqhttp import MessageSegment,escape
+from nonebot.adapters.cqhttp import MessageSegment,utils
 from nonebot.log import logger
 from nonebot.rule import to_me
 from nonebot.adapters import Bot, Event
-from .msxblib import xiaobinglib as xblib
+from .msxblib import xblib
 #智库初始化
 import lib.nblib.smartlib as e
 import xxt.setting as cf
@@ -35,9 +35,9 @@ async def _(bot: Bot, event: Event, state: dict):
     msg = state['msg']
     if state['info'] == 'texts':
         # 通过封装的函数获取机器人的回复并回复用户的消息
-        reply = await xblib.chat(msg,cf.WB_uid,cf.WB_source,cf.WB_SUB)
-        if reply:
-            await chat.finish(MessageSegment.reply(event.message_id)+escape(reply))
+        reply = await xblib.chat(msg)
+        if reply != False:
+            await chat.finish(MessageSegment.reply(event.message_id)+utils.escape(reply,escape_comma=True))
         # 如果调用失败，或者它返回的内容我们目前处理不了，发送无法获取回复时的「表达」
         # 这里的 expr() 函数会将一个「表达」渲染成一个字符串消息
         await chat.finish(expr(e.TXCHAT_NOANSWER))
