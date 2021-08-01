@@ -37,7 +37,7 @@ async def _(bot: Bot, event: Event, state: dict):
         # 通过封装的函数获取机器人的回复并回复用户的消息
         reply = await xblib.chat(msg)
         if reply != False:
-            await chat.finish(MessageSegment.reply(event.message_id)+utils.escape(reply,escape_comma=True))
+            await chat.finish(MessageSegment.reply(event.message_id)+reply)
         # 如果调用失败，或者它返回的内容我们目前处理不了，发送无法获取回复时的「表达」
         # 这里的 expr() 函数会将一个「表达」渲染成一个字符串消息
         await chat.finish(expr(e.TXCHAT_NOANSWER))
