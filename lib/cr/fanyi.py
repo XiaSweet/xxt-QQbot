@@ -5,6 +5,8 @@ def clans(req):
     req = req.replace('open','自由进入')
     return req
 def chest(ce):
+    ce = ce.replace('Plentiful Gold Crate','高级金币箱')
+    ce = ce.replace('Gold Crate','金币宝箱')
     ce = ce.replace('Silver Chest','普通银箱')
     ce = ce.replace('Magical Chest','魔法紫箱')
     ce = ce.replace('Golden Chest','黄金宝箱')
@@ -24,7 +26,9 @@ def lucky(ce):
     else:
         lck_po = lck_po.replace('+','')
         lck_po = int(lck_po)
-        if lck_po < 300:
+        if lck_po > 300:
+            return '' 
+        elif lck_po < 300:
             return '(还早呢QAq)'
         elif lck_po < 300:
             return '(有点距离了)'

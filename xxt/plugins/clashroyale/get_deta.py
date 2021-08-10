@@ -72,7 +72,7 @@ async def cr_blzgl(bl):
             rt=rt+f'\n{wb}部落战况：'
             for item in req:
                 cs = cs+1
-                rt=rt+f'\n{cs}."{item["name"]}":识别码:"{item["tag"]}",前进：{item["fame"]}米,维修:{item["repairPoints"]}'
+                rt=rt+f'\n{cs}."{item["name"]}":识别码:"{item["tag"]}",前进：{item["fame"]}米'
             return rt
         elif zbr==True:
             cs = 0
