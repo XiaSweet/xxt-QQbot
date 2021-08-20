@@ -16,13 +16,13 @@ flash_img = on_message(block=False)
 # 群聊
 @recall.handle()
 async def _(bot: Bot, event: GroupRecallNoticeEvent):
-    if xtset.Debug ==True:
-        await recall.finish('Debug模式：这个提示代表了机器人准备发送群聊撤回的消息了')
-    elif xtset.block_delmsg==False or xtset.FixMode==True:
-        await recall.finish()
     mid = event.message_id
     meg = await bot.get_msg(message_id=mid)
     if event.user_id != event.self_id and 'type=flash,' not in meg['message']:
+        if xtset.Debug ==True:
+            await recall.finish('Debug模式：这个提示代表了机器人准备发送群聊撤回的消息了')
+        elif xtset.block_delmsg==False or xtset.FixMode==True:
+            await recall.finish()
         re = '刚刚说了:' + meg['message'] + '\n不要以为派蒙没看见！'
         await recall.finish(message=Message(re), at_sender=True)
 
@@ -30,13 +30,13 @@ async def _(bot: Bot, event: GroupRecallNoticeEvent):
 # 私聊
 @recall.handle()
 async def _(bot: Bot, event: FriendRecallNoticeEvent):
-    if xtset.Debug ==True:
-        await recall.finish('Debug模式：这个提示代表了机器人准备发送私聊撤回的消息了')
-    elif xtset.block_delmsg==False or xtset.FixMode==True:
-        await recall.finish()
     mid = event.message_id
     meg = await bot.get_msg(message_id=mid)
     if event.user_id != event.self_id and 'type=flash,' not in meg['message']:
+        if xtset.Debug ==True:
+            await recall.finish('Debug模式：这个提示代表了机器人准备发送私聊撤回的消息了')
+        elif xtset.block_delmsg==False or xtset.FixMode==True:
+            await recall.finish()
         re = '刚刚说了:' + str(meg['message']) + '\n不要以为派蒙没看见！'
         await recall.finish(message=Message(re))
 

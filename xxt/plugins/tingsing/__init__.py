@@ -1,9 +1,9 @@
 #Nonebot2基础模块
-from nonebot import on_keyword
+from nonebot import on_command
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event,MessageSegment
 from nonebot.typing import T_State
-tingsong = on_keyword("music",rule=to_me(), priority=2, block=True)
+tingsong = on_command("music",rule=to_me(), priority=2, block=True)
 @tingsong.handle()
 async def _(bot: Bot, event: Event, state: dict):
     args = str(event.message).strip()

@@ -51,7 +51,7 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
 @cr_cbx.got("msg", prompt="请告诉我你要查询的用户TAG号？")
 async def handle_msg(bot: Bot, event: Event, state: T_State):
     msg = state["msg"]
-    await cr_cbx.send(f'>  '+MessageSegment.at(event.user_id)+'\n'+expr(e.SYSTEM_WAITING)) # expr(e.SYSTEM_WAITING)
+    await cr_cbx.send(f'>  '+MessageSegment.at(event.user_id)+expr(e.SYSTEM_WAITING)) # expr(e.SYSTEM_WAITING)
     from .get_deta import cbx as gdata
     msg_cr_cbx = await gdata(msg,'cr_cbx')
     await cr_cbx.finish(MessageSegment.reply(event.message_id)+msg_cr_cbx)
@@ -95,4 +95,3 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     from .get_deta import cr_blzgl
     req_m =await cr_blzgl('dbl')
     await cr_cwgl.finish(req_m)
-

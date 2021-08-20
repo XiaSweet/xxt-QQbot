@@ -1,11 +1,11 @@
-from nonebot import on_keyword
+from nonebot import on_command
 from nonebot.rule import to_me,keyword
 from nonebot.adapters.cqhttp import Bot, Event
 from nonebot.typing import T_State
 from lib.nblib.helpers import render_expression as expr
 import lib.nblib.smartlib as e
 #示例代码段
-hy_czj = on_keyword("荒野查询", rule=to_me(), priority=5,block=True)
+hy_czj = on_command("荒野查询", rule=to_me(), priority=5,block=True)
 @hy_czj.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.message).strip()  # 首次发送命令时跟随的参数，例：/天气 上海，则args为上海

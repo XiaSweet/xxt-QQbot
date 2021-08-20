@@ -13,22 +13,28 @@ def cx(qid,args=yyk):
             return False,0
     conn = pymysql.connect(**args)
     cursor = conn.cursor()
-    lb = cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid}  and `game` = 'cr'")
-    conn.commit()
-    conn.close()
+    lb = cursor.execute(f"SELECT * FROM `default_user` WHERE `qid` = {qid}  and `gname` = 'cr'")
     cr,stat=jc(lb)
     if cr==True and stat==1:
-        lb = cursor.fetchall()
-        return lb[0][4],True
-    elif cr==True and stat==2:
-        lb = cursor.fetchall()
-        jg=('请@你需要查询的ID号以继续查询\n')
-        jg=(jg+'皇室战争：')
-        for data in lb:
-            if data[1]==qid and data[3]=='cr':
-                jg=(jg+'\n')
-                jg=(jg+f'@{data[2]}:{data[5]}'
-                )
-        return jg,'Wait'
+            lb = cursor.fetchall()
+            return lb[0][4],True
     else:
-        return '404',False
+        lb=cursor.execute(f"SELECT * FROM `xiasweet` WHERE `qid` = {qid}  and `game` = 'cr'")
+        conn.commit()
+        conn.close()
+        cr,stat=jc(lb)
+        if cr==True and stat==1:
+            lb = cursor.fetchall()
+            return lb[0][4],True
+        elif cr==True and stat==2:
+            lb = cursor.fetchall()
+            jg=('请@你需要查询的ID号以继续查询\n')
+            jg=(jg+'皇室战争：')
+            for data in lb:
+                if data[1]==qid and data[3]=='cr':
+                    jg=(jg+'\n')
+                    jg=(jg+f'@{data[2]}:{data[5]}'
+                    )
+            return jg,'Wait'
+        else:
+            return '404',False

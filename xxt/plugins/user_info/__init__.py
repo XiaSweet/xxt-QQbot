@@ -1,9 +1,9 @@
 #Nonebot2基础模块
-from nonebot import on_keyword
+from nonebot import on_command
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event,MessageSegment
 from nonebot.typing import T_State
-yhbd=on_keyword("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
+yhbd=on_command("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
 @yhbd.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.message).strip()  # 原始信息
@@ -88,7 +88,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     else:
         await yhbd.finish(MessageSegment.reply(event.message_id)+f'绑定成功啦，您现在绑定的用户是：{game}@{gname}#{tag}')
 #附加的小插件：用户绑定查询
-bdcx=on_keyword("cbd", rule=to_me(), priority=4,block=True)
+bdcx=on_command("cbd", rule=to_me(), priority=4,block=True)
 @bdcx.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).replace(' ','')
