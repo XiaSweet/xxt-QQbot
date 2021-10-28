@@ -1,7 +1,5 @@
 #!/bin/bash
 echo '[夏小甜管家]正在检测程序完整性'
-source config.conf 
-cq_ver=v1.0.0-beta3
 if [ ! -d "/home/xxt-QQbot" ]; then
   echo '[夏小甜管家]小管家主程序需要初始化，请稍后'
   cd /home
@@ -17,7 +15,7 @@ if [ ! -d "/home/xxt-QQbot" ]; then
    fi
 fi
 cd /home/xxt-QQbot
-if [ ! -d "/etc/xiaxiaotian/cq" ]; then
+if [ ! -d "/etc/xxt/cq" ]; then
   echo '[夏小甜管家]文件初始化。。。。。。'
   mkdir /etc/xiaxiaotian/cq
 fi
