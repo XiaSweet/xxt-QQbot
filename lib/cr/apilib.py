@@ -60,11 +60,12 @@ def cr_user(tag):
                 info_bl='小部落'
             else:
                 info_bl='同好会'
+            info_bl='来自'+info_bl+'的'
             return info["name"],info_bl
         except KeyError:
-            return info["name"],''
+            return info["name"],'亲爱的'
         else:
-            return info["name"],''
+            return info["name"],'亲爱的'
     else:
         return None,False
 #皇家部落-长老捐卡审核
