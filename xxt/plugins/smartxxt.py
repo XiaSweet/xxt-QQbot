@@ -23,7 +23,7 @@ async def _(bot: Bot, event: GroupRecallNoticeEvent):
             await recall.finish('Debug模式：这个提示代表了机器人准备发送群聊撤回的消息了')
         elif xtset.block_delmsg==False or xtset.FixMode==True:
             await recall.finish()
-        re = '刚刚说了:' + meg['message'] + '\n不要以为派蒙没看见！'
+        re = '刚刚说了:' + meg['message'] + '\n不要以为管家没看见！'
         await recall.finish(message=Message(re), at_sender=True)
 
 
@@ -37,7 +37,7 @@ async def _(bot: Bot, event: FriendRecallNoticeEvent):
             await recall.finish('Debug模式：这个提示代表了机器人准备发送私聊撤回的消息了')
         elif xtset.block_delmsg==False or xtset.FixMode==True:
             await recall.finish()
-        re = '刚刚说了:' + str(meg['message']) + '\n不要以为派蒙没看见！'
+        re = '刚刚说了:' + str(meg['message']) + '\n不要以为管家没看见！'
         await recall.finish(message=Message(re))
 
 #反对戳一下 

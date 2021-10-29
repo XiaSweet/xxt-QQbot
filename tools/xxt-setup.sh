@@ -2,18 +2,18 @@
 echo '[夏小甜Setup]正在检测程序完整性'
 #主程序Git检测
 if [ ! -d "/home/xxt-QQbot" ]; then
-  echo '[夏小甜Safe]小管家主程序需要初始化，请稍后......'
-  cd /home
-  git clone --depth=1 -b master https://github.com/XiaSweet/xxt-QQbot
-  if [ $? -ne 0 ]; then
-   echo "[夏小甜Safe]小管家程序初始化完成owo"
-   else
-   echo -e "\033[31m[夏小甜]小管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
-   echo "[夏小甜Safe]请注意目前有20分钟的时间用来手动进入容器排查，请注意！"
-   sleep 1200
-   echo "[夏小甜Safe]默认为问题已解决，正在自动重启"
-   exit 1
-   fi
+	echo '[夏小甜Safe]小管家主程序需要初始化，请稍后......'
+	cd /home
+	git clone --depth=1 -b master https://github.com/XiaSweet/xxt-QQbot
+	if [ $? -eq 0 ]; then
+		echo "[夏小甜Safe]小管家程序初始化完成owo"
+	else
+		echo -e "\033[31m[夏小甜]小管家主程序下载失败，请在网络通畅的时候再试试吧QAQ\033[0m"
+		echo "[夏小甜Safe]请注意目前有20分钟的时间用来手动进入容器排查，请注意！"
+		sleep 1200
+		echo "[夏小甜Safe]默认为问题已解决，正在自动重启"
+		exit 1
+	fi
 fi
 #CQHTTP检测
 if [ ! -d "/etc/xxt/cq" ]; then
@@ -68,15 +68,15 @@ if [ ! -f "$cqstat" ];then
 		cd /etc/xxt/cq && tar -zxvf cqhttp.tar.gz && mv go-cqhttp cqhttp
 		chmod -R 744 /etc/xxt/cq/cqhttp && rm -f cqhttp.tar.gz
 		echo -e "\033[32m[夏小甜Setup]CQHTTP加载完成OWo\033[0m"
-		exit 0
 	fi
 fi
 echo -e "\033[32m[夏小甜Setup]QQ茶话会中转组件加载完成OWo\033[0m"
 cq_set=$(find /etc/xxt/cq -name 'config.yml')
 if [ ! -f "$cq_set" ];then
-	echo '[夏小甜管家]CQHTTP初始化完成,现在开始账户设置'
+	echo '[夏小甜管家]CQHTTP初始化完成,即将开始账户设置'
 	sleep 3
-	python /home/xxt-QQbot/tools/setting.py -qi $qid -qp $qpwd
+	cd /home/xxt-QQbot/tools/
+	python setting.py -qi $qid -qp $qpwd
 	if [ $? -ne 0 ]; then
 		echo -e '\033[31m[夏小甜管家]出现了致命错误：关键变量缺失，请确定QID与QPWD变量是否存在！QAQ\033[0m'
 		echo '[夏小甜管家]因无法解决的错误而退出了程序。。。。。。。。。。'
@@ -86,11 +86,12 @@ if [ ! -f "$cq_set" ];then
 		sleep 3
 	fi
 else
-	echo -e '\033[32m[夏小甜管家]CQHTTP初始化完成,马上启动owo\033[0m'
+	echo -e '\033[32m[夏小甜管家]CQHTTP初始化完成,正在启动owo\033[0m'
 	cd /etc/xxt/cq && nohup ./cqhttp >/dev/null 2>log &
 	sleep 1.5
 fi
 cp /home/xxt-QQbot/tools/device.json /etc/xxt/cq/device.json
 clear
 echo '以下是NoneBot的启动日志：'
-python /home/xxt-QQbot/start.py
+cd /home/xxt-QQbot/
+python start.py

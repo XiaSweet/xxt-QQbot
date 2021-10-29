@@ -7,7 +7,7 @@ async def cbx(tag: str,rw):
     req,stat = apilib.crapi('players',tag,'upcomingchests')
     if stat == True:
         user,clan=apilib.cr_user(tag)
-        chest=(f'你好，来自{clan}的{user}:\n下个宝箱：{req["items"][0]["name"]}')
+        chest=(f'你好，{clan}{user}:\n下个宝箱：{req["items"][0]["name"]}')
         chest = fanyi.chest(chest)
         stat = 1
         for item in req ["items"]:

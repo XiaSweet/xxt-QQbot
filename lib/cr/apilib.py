@@ -53,13 +53,18 @@ def tryapi(req):
 def cr_user(tag):
     info,stat=crapi('players',tag)
     if stat == True:
-        if info["clan"]["tag"]=='#88GUJ80':
-            info_bl='大部落'
-        elif info["clan"]["tag"]=='#JY8YVC0':
-            info_bl='小部落'
+        try:
+            if info["clan"]["tag"]=='#88GUJ80':
+                info_bl='大部落'
+            elif info["clan"]["tag"]=='#JY8YVC0':
+                info_bl='小部落'
+            else:
+                info_bl='同好会'
+            return info["name"],info_bl
+        except KeyError:
+            return info["name"],''
         else:
-            info_bl='同好会'
-        return info["name"],info_bl
+            return info["name"],''
     else:
         return None,False
 #皇家部落-长老捐卡审核

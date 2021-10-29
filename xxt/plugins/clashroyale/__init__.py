@@ -5,7 +5,7 @@ from nonebot.typing import T_State
 #import xxt.plugins.clashroyale.get_deta as gets
 from lib.nblib.helpers import render_expression as expr
 import lib.nblib.smartlib as e
-#示例代码段
+#查宝箱
 cr_cbx = on_keyword("查宝箱", rule=to_me(), priority=4,block=True)
 @cr_cbx.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):

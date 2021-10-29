@@ -55,7 +55,7 @@ if [ ! -f "$cqstat" ];then
 		echo -e "\033[32m[夏小甜管家]CQHTTP加载完成OWo\033[0m"
 	fi
 fi
-cq_set=$(find /etc/xiaxiaotian/cq -name 'config.hjson')
+cq_set=$(find /etc/xiaxiaotian/cq -name 'config.yml')
 if [ ! -f "$cq_set" ];then
 	echo '[夏小甜管家]CQHTTP初始化完成,现在开始账户设置'
 	sleep 3
