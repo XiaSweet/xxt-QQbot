@@ -1,9 +1,9 @@
 #Nonebot2基础模块
-from nonebot import on_command
+from nonebot import on_startswith,on_command
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import Bot, Event,MessageSegment
 from nonebot.typing import T_State
-yhbd=on_command("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
+yhbd=on_startswith("绑定账号",rule=to_me(),priority=5,block=True) #,rule=to_me()
 @yhbd.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.message).strip()  # 原始信息
@@ -14,8 +14,18 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
         await yhbd.finish(tag)
     if args:    # 过滤可用信息
         import re
-        try:
-            tag=re.search('[A-Za-z0-9]+',args).group()
+        try: #手动绑定判定
+            if event.user_id==1172608638: #针对管理员的手动绑定逻辑
+                try:
+                    qid=re.search('[1-9][0-9]{4,}',args).group()
+                    tag=re.search('#[A-Za-z0-9]+',args).group()
+                    tag=tag.replace('#','')
+                except:
+                    qid=event.user_id
+                    tag=re.search('[A-Za-z0-9]+',args).group()
+            else:
+                qid=event.user_id
+                tag=re.search('[A-Za-z0-9]+',args).group()
         except AttributeError:
             await yhbd.reject('您的TAG似乎不对，再试试吧',at_sender=True)
         else: 
@@ -23,18 +33,20 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
             import xxt.setting as xs
             conn = pymysql.connect(**xs.yyk)
             cursor = conn.cursor()
-            lists=cursor.execute(f'SELECT * FROM `xiasweet` WHERE `tag` = "{tag}" and `qid`={event.user_id}')
+            lists=cursor.execute(f'SELECT * FROM `xiasweet` WHERE `tag` = "{tag}" and `qid`={qid}')
             if lists == 0:
                 state["tag"]=tag.upper()
-                state["qid"]=event.user_id
+                state["qid"]=qid
             else:
                 lists = cursor.fetchall()
                 if lists[0][3]=='bs':
                     gname='荒野乱斗'
                 elif lists[0][3]=='cr':
                     gname='皇室战争'
-                await yhbd.finish(f'你已在小管家这里登记这个TAG哦，重新绑定请联系部落首领@Ver.冬瓜萌萌！\n\
-TAG绑定信息：{gname}@{lists[0][5]}')
+                if event.user_id==qid:
+                    await yhbd.finish(f'你已在小管家这里登记这个TAG哦，重新绑定请联系部落首领@Ver.冬瓜萌萌！\nTAG绑定信息：{gname}@{lists[0][5]}')
+                else:
+                    await yhbd.finish(f'用户@{qid}已绑定，无需重复绑定！\n查询TAG绑定信息：{gname}@{lists[0][5]}')
     else:
         await yhbd.finish('或许你的账户实力婉如天上的星星令人难以分清，请根据使用指引修改的你命令参数QAQ\n\
 使用指引：用户绑定+你的游戏TAG，不需要备注游戏我会自动识别')
@@ -88,7 +100,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     else:
         await yhbd.finish(MessageSegment.reply(event.message_id)+f'绑定成功啦，您现在绑定的用户是：{game}@{gname}#{tag}')
 #附加的小插件：用户绑定查询
-bdcx=on_command("cbd", rule=to_me(), priority=4,block=True)
+bdcx=on_startswith("cbd", rule=to_me(), priority=4,block=True)
 @bdcx.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     args = str(event.get_message()).replace(' ','')

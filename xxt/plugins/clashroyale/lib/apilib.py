@@ -6,7 +6,7 @@ import ssl
 #皇室战争API基础应用库
 #CR 基础API模块
 def crapi(menu,tag,menu2='',stat=0):
-    cr_key='xxt/plugins/clashroyale/lib/mykey.txt'
+    cr_key='lib/mykey.txt'
     with open(cr_key) as f:
         mykey=f.read().rstrip("\n")
         ssl._create_default_https_context = ssl._create_unverified_context
