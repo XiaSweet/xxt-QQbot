@@ -26,9 +26,7 @@ del_flushmsg=True
 WB_uid = '5175429989'
 WB_source = '209678993'
 WB_SUB = '_2A25N9CiEDeRhGeBO6lEY8S3KzzmIHXVugB1MrDV8PUNbmtB-LU3GkW9NSjDPYwLR1ciftLqjf5DKU7DHjmFYaTlg'
-#腾讯云NLP变成账户id，智能闲聊需授权NLP权限
-TXCloud_id = "AKIDDDySgiTw95k8F6gz0mHVS9ZibFdka8A1"
-TXCloud_key = "cz7zby6zWqujIbeS0IK6dvxjGYaMtAAu"
+
 #配置文件结束
 
 
