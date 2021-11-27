@@ -74,7 +74,7 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
         await cr_xyh.send(expr(e.SYSTEM_WAITING)+'\rPs:小管家目前的能力暂时无法解析COC与荒野的TAG号，日后更新敬请谅解',at_sender=True)
         msg_cr_xyh = await subprocess.getoutput("python xxt/plugins/clashroyale/lib/user.py -u '%s'"%(re_msg))
         await cr_xyh.finish(msg_cr_xyh)
-
+#找队友
 cr_zdy = on_keyword('找队友', rule=to_me(), priority=3,block=True)
 @cr_zdy.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
@@ -95,3 +95,25 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
     from .get_deta import cr_blzgl
     req_m =await cr_blzgl('dbl')
     await cr_cwgl.finish(req_m)
+
+
+
+#以下代码用于注册Nonebot自动化的CR部落运营统计服务
+from nonebot import require,get_driver,get_bot
+scheduler = require("nonebot_plugin_apscheduler").scheduler
+# 每日0点自动@主人
+@scheduler.scheduled_job(
+    'cron',
+    hour=0,
+    minute=26,
+)
+async def _():
+    from .get_deta import auto_upnoice
+    bot=get_bot()
+    re=await auto_upnoice()
+    try:
+        a=await bot.call_api("_send_group_notice",**{'group_id':1062326148,'content':str(re)})
+        a=await bot.call_api("_send_group_notice",**{'group_id':240253684,'content':str(re)})
+    except:
+        print('出现了错误，错误信息如下：')
+        print(a)

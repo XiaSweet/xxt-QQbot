@@ -2,7 +2,6 @@
 from lib.nblib.helpers import render_expression as expr
 import lib.nblib.smartlib as e
 import xxt.setting as xtset
-
 from nonebot import on_notice, on_message
 from nonebot.adapters.cqhttp import GroupRecallNoticeEvent, Bot, Message, FriendRecallNoticeEvent, PokeNotifyEvent, \
     MessageEvent, MessageSegment
@@ -96,3 +95,19 @@ async def _(bot: Bot, event: MessageEvent):
             await flash_img.finish(MessageSegment.reply(event.message_id)+expr(e.fuck_flashzhao)+msg)
         else:
             await flash_img.finish()
+#定时任务测试代码
+from nonebot import require,get_driver,get_bot
+scheduler = require("nonebot_plugin_apscheduler").scheduler
+# 每日0点自动@主人
+@scheduler.scheduled_job(
+    'cron',
+    hour=0,
+    minute=33,
+)
+async def _():
+    bot = get_bot()
+    try:
+        a=await bot.call_api("send_msg",**{'user_id':1172608638,'message':'Hello，World定时任务测试指令完成owo'})
+    except:
+        print('出现了错误，错误信息如下：')
+        print(a)

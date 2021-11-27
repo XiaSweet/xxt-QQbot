@@ -1,10 +1,10 @@
-from nonebot import on_command, require
+from nonebot import on_startswith, require
 from nonebot.rule import to_me
 from nonebot.adapters.cqhttp import GROUP, Bot, Event
 from nonebot.typing import T_State
 from lib.nblib.helpers import render_expression as expr
 import lib.nblib.smartlib as e
-txxg = on_command("改称呼", rule=to_me(), priority=4,block=True)
+txxg = on_startswith("改称呼", rule=to_me(), priority=4,block=True)
 @txxg.handle()
 async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     if event.user_id==1172608638:
