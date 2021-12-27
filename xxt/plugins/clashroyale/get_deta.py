@@ -171,7 +171,7 @@ async def auto_upnoice(tag="88GUJ80"):
             return re
     #获取今日时间
     import time
-    re=f"部落战营运概览owo({time.strftime('%Y/%m/%d', time.localtime())})：\n\n"
+    re=f"部落日报—————营运概览（Beta）({time.strftime('%Y/%m/%d', time.localtime())})：\n\n"
     #lib插件：获取每日一言
     import lib.yiyan as yiyan
     try:

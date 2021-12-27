@@ -101,11 +101,11 @@ async def handle_msg(bot: Bot, event: Event, state: T_State):
 #以下代码用于注册Nonebot自动化的CR部落运营统计服务
 from nonebot import require,get_driver,get_bot
 scheduler = require("nonebot_plugin_apscheduler").scheduler
-# 每日0点自动@主人
+# 每日20点30自动生成部落战报告
 @scheduler.scheduled_job(
     'cron',
-    hour=0,
-    minute=26,
+    hour=20,
+    minute=27,
 )
 async def _():
     from .get_deta import auto_upnoice
@@ -113,7 +113,27 @@ async def _():
     re=await auto_upnoice()
     try:
         a=await bot.call_api("_send_group_notice",**{'group_id':1062326148,'content':str(re)})
-        a=await bot.call_api("_send_group_notice",**{'group_id':240253684,'content':str(re)})
+        #发向茶话会副本的内容
+        # a=await bot.call_api("_send_group_notice",**{'group_id':240253684,'content':str(re)}) 
+    except:
+        print('出现了错误，错误信息如下：')
+        print(a)
+
+# 此代码用于预留接口来对接全新的RoyaleAPIlib-XXT
+# 每日23点自动生成部落战报告
+@scheduler.scheduled_job(
+    'cron',
+    hour=1,
+    minute=30,
+)
+async def _():
+    bot=get_bot()
+    try:
+        import subprocess
+        req = await subprocess.getoutput("cd lib/cr && python te_CRlog.py")
+        #a=await bot.call_api("_send_group_notice",**{'group_id':1062326148,'content':str(re)})
+        #发向茶话会副本的内容
+        a=await bot.call_api("send_msg",**{'user_id':1172608638,'message':str(req)}) 
     except:
         print('出现了错误，错误信息如下：')
         print(a)

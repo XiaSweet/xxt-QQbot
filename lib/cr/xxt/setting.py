@@ -4,7 +4,7 @@
 yykd = dict(
         host = 'localhost',
         user = 'xiasweet',
-        passwd = 'asNhZFw7BYCcTksZ',
+        password = 'asNhZFw7BYCcTksZ',
         db = 'xiasweet',
         charset = 'utf8'
 )
@@ -12,7 +12,7 @@ yykd = dict(
 yyk = dict(
         host = '172.17.0.1',
         user = 'xiasweet',
-        passwd = 'asNhZFw7BYCcTksZ',
+        password = 'asNhZFw7BYCcTksZ',
         db = 'xiasweet',
         charset = 'utf8'
 )
